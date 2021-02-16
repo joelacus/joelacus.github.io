@@ -248,30 +248,24 @@
 	<script type="text/javascript">
 		// DuckDuckGo search
 		$(document).on( "click", ".btn-duckduckgo", function(e) {
-			var search = document.getElementsByClassName("duckduckgo-input")[0].value;
+			var search = $(this).siblings(".duckduckgo-input")[0].value;
 			var search2 = search.replace(/ /g, "+");
 			var base = "https://duckduckgo.com/?q="
+			console.log(base+search);
 			if (search.length > 0){
 				window.location.href = base+search;
 			}
 		});
-
-		$(document).ready(function() {
-			$('.duckduckgo-input').bind("enterKey",function(e){
-			   	var search = document.getElementsByClassName("duckduckgo-input")[0].value;
+		$(document).on("keypress", "input", function(e){
+	        if(e.which == 13){
+	            var search = $(this).val();
 				var search2 = search.replace(/ /g, "+");
 				var base = "https://duckduckgo.com/?q="
 				if (search.length > 0){
 					window.location.href = base+search;
 				}
-			});
-			$('.duckduckgo-input').keyup(function(e){
-			    if(e.keyCode == 13)
-			    {
-			        $(this).trigger("enterKey");
-			    }
-			});
-		});
+	        }
+	    });
 	</script>
 
 	<script type="text/javascript">
@@ -875,7 +869,7 @@
 			$(document).on( "click", ".btn-add-search", function(e) {
 			    e.preventDefault(); 
 			    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=4 data-min-sizey=1 data-max-sizex=10 data-max-sizey=1>'+widget_basics+'<div class="search-bar">\
-			    											<div style="width: 100%;height:100%;"><form><input class="duckduckgo-input" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-duckduckgo" type="button"><i class="fas fa-search"></i></button></form></div>\
+			    											<div style="width: 100%;height:100%;"><form onSubmit="return false;"><input class="duckduckgo-input" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-duckduckgo" type="button"><i class="fas fa-search"></i></button></form></div>\
 			    										</div></div></li>', 8, 1]);
 			    var backgroundColour = (localStorage.getItem('tempBackground'));
 			    lightenDarken(backgroundColour);
