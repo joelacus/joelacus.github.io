@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+<html lang="en-GB">
+<title>Dash</title>
+
+<!-- = Styles = -->
+	<link href="main.css" rel="stylesheet" type="text/css" />
+	<link href="gridster.css" rel="stylesheet" type="text/css" />
+
+<!-- = Scripts = -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="html5storage.min.js"></script>
+	<script src="gridster.js"></script>
+	
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+
+	<div class="loading-page loading-page-visible">
+		<div class="spinner"></div>
+	</div>
+	<div class="notification-saved neumorphic hidden"><span>Saved</span></div>
+	<div class="notification-export neumorphic hidden"><span>Copied Save Data To Clipboard.<br>Save This In A New Text File</span><button class="remove-notification-export"></button></div>
+	<div id="press-ctrl-v" class="notification-import neumorphic hidden"><span>Copy Save Data,<br>Then Press CTRL+V Here</span></div>
+
+	<script type="text/javascript">
+		var restoreBackground = (localStorage.getItem('saveBackground'));
+		$(".loading-page").css("background",restoreBackground);
+	</script>
+
+	<style type="text/css">
+	:root {
+		--gd1: rgba(0,0,0,0.22);
+		--gd2: rgba(255,255,255,0.3);
+	}
+	</style>
+</head>
+<body>
+	<div class="buymeacoffee hidden"><script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="customdash" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ff0000" data-coffee-color="#000000" ></script></div>
+
+		<div class="gridster">
+		    <ul>
+				<li data-min-sizex="2" data-min-sizey="2" data-max-sizex="4" data-max-sizey="4" class="gs-w" data-col="9" data-row="8" data-sizex="2" data-sizey="2">					
+					<div class="widget-colour" style="background-color: rgb(84, 71, 140);">
+						<div class="convex"><header class="hidden"></header>
+							<div class="btn-colour-picker hidden">
+								<div class="colour-picker">
+									<div class="widget-colour-picker insert-colour-buttons">
+										<!-- will insert colour buttons html -->
+									</div>
+								</div>
+							</div>
+							<button class="remove hidden"></button>
+						</div>
+					</div>
+				</li>
+				<li data-min-sizex="2" data-min-sizey="2" data-max-sizex="4" data-max-sizey="4" class="gs-w" data-col="20" data-row="8" data-sizex="2" data-sizey="2">
+					<div class="widget-colour" style="background-color: rgb(84, 71, 140);">
+						<div class="convex"><header class="hidden"></header>
+							<div class="btn-colour-picker hidden">
+								<div class="colour-picker">
+									<div class="widget-colour-picker insert-colour-buttons">
+										<!-- will insert colour buttons html -->
+									</div>
+								</div>
+							</div>
+							<button class="remove hidden"></button>
+						</div>
+					</div>
+				</li>
+				<li data-min-sizex="2" data-min-sizey="2" data-max-sizex="12" data-max-sizey="12" class="gs-w" data-col="14" data-row="8" data-sizex="3" data-sizey="2">
+					<div class="widget-colour" style="background-color: rgb(84, 71, 140);">
+						<div class="convex"><header class="hidden"></header>
+							<div class="btn-colour-picker hidden">
+								<div class="colour-picker">
+									<div class="widget-colour-picker insert-colour-buttons">
+										<!-- will insert colour buttons html -->
+									</div>
+								</div>
+							</div>
+							<button class="remove hidden"></button>
+							<textarea id="noteNew" placeholder="Notes"></textarea>					
+						</div>
+					</div>
+				</li>
+				<li data-min-sizex="4" data-min-sizey="1" data-max-sizex="10" data-max-sizey="1" class="gs-w" data-col="11" data-row="5" data-sizex="9" data-sizey="1">
+					<div class="widget-colour" style="background-color: rgb(84, 71, 140);">
+						<div class="convex"><header class="hidden"></header>
+							<div class="btn-colour-picker hidden">
+								<div class="colour-picker">
+									<div class="widget-colour-picker insert-colour-buttons">
+										<!-- will insert colour buttons html -->
+									</div>
+								</div>
+							</div>
+							<button class="remove hidden"></button>
+							<div class="search-bar">
+								<div style="width: 100%;height:100%;"><form><input class="duckduckgo-input" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-duckduckgo" type="button"><i class="fas fa-search"></i></button></form></div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li data-min-sizex="1" data-min-sizey="1" data-max-sizex="5" data-max-sizey="5" data-col="14" data-row="10" data-sizex="3" data-sizey="1">
+					<div class="widget-colour" style="background-color: rgb(84, 71, 140);">
+						<div class="convex"><header class="hidden"></header>
+							<div class="btn-colour-picker hidden">
+								<div class="colour-picker">
+									<div class="widget-colour-picker insert-colour-buttons">
+										<!-- will insert colour buttons html -->
+									</div>
+								</div>
+							</div>
+							<button class="remove hidden"></button>
+							<div class="widget-link">
+								<a href="">link</a>
+							</div>
+						</div>					
+					</div>
+				</li>
+		    </ul>
+		</div>
+	
+
+
+	<div class="button-container">
+		<div class="controls hidden">  		    
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:55px;">Add New Widgets</span><a class="btn btn-add-new-widget"><span><i class="fas fa-plus"></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:145px;">Change Background</span><a class="btn btn-change-bg"><span><i class="far fa-image"></i></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:235px;">Reset To<br>Default</span><a class="btn btn-default-layout"><span><i class="fas fa-undo-alt"></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:325px;">Copy Save<br>To Clipboard</span><a class="btn btn-export-save"><span><i class="fas fa-file-export"></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:415px;">Import Save From Clipboard</span><a class="btn btn-import-save"><span><i class="fas fa-file-upload"></i></span></a></div>
+		</div>
+
+		<div id="btn-edit-save" class="tooltip"><span class="tooltiptext" style="margin-left:-35px;">Edit / Save</span>
+			<div id="ripple" class="circle-ripple"></div>
+		  	<button id="btn-edit-save" class="btn btn-edit-save" ><span></span></button>
+		</div>
+
+  		<!--<a href="#" class="btn btn-edit"><span></span></a>
+  		<a href="#" class="btn btn-save"><span></span></a>-->
+  		
+	</div>
+
+	<div class="change_bg_popup">
+		<button class="accordion active" id="accordion1">Colours</button>
+		<div class="panel" style="max-height: 84px;">
+			<div style="margin-bottom: 10px;">
+				<button class="btn-colour-grey3 btn-bg-colour-grey3"></button>
+				<button class="btn-colour-grey4 btn-bg-colour-grey4"></button>
+				<button class="btn-colour-grey2 btn-bg-colour-grey2"></button>
+				<button class="btn-colour-grey btn-bg-colour-grey"></button>				
+				<button class="btn-colour-white btn-bg-colour-white"></button>
+				<button class="btn-colour-purple2 btn-bg-colour-purple2"></button>
+				<button class="btn-colour-purple btn-bg-colour-purple"></button>
+				<button class="btn-colour-blue2 btn-bg-colour-blue2"></button>
+				<button class="btn-colour-blue btn-bg-colour-blue"></button>
+				<button class="btn-colour-teal btn-bg-colour-teal"></button>
+				<button class="btn-colour-cyan btn-bg-colour-cyan"></button>
+				<button class="btn-colour-green btn-bg-colour-green"></button>
+				<button class="btn-colour-green2 btn-bg-colour-green2"></button>
+				<button class="btn-colour-green3 btn-bg-colour-green3"></button>
+				<button class="btn-colour-yellow btn-bg-colour-yellow"></button>									
+				<button class="btn-colour-white2 btn-bg-colour-white2"></button>
+				<button class="btn-colour-orange btn-bg-colour-orange"></button>
+				<button class="btn-colour-pink btn-bg-colour-pink"></button>
+				<button class="btn-colour-red btn-bg-colour-red"></button>
+			</div>
+		</div>
+
+		<button class="accordion" id="btn-custom-colour">Custom Colour</button>
+		<div class="panel" style="padding-left:0;padding-right:0;">
+			<div class="colour-preview" style="width:100%;height:100%;">
+				<div style="height: 80px;">
+					<div class="colour-input-box-1"><span style="margin-left: 25px;">HEX:</span></div>
+					<div class="colour-input-box-2"><input id="colour-input-box" class="input colour-input" name="input" type="text" placeholder="#797979" onfocus="this.value=''"/></div>
+					<div class="colour-input-box-3"><button class="btn set-bg-colour"><i class="fas fa-check"></i></button></div>
+				</div>
+			</div> 
+		</div>
+
+		<!--<button class="accordion">Gradient</button>
+		<div class="panel">
+		  <p>asdf</p>
+		</div>-->
+		<button class="accordion" id="btn-custom-photo">Image</button>
+		<div class="panel" id="panel4">
+		  	<div style="height: 80px;">
+				<div class="colour-input-box-1"><span style="margin-left: 20px;">IMAGE:</span></div>
+				<div class="colour-input-box-2"><input id="photo-input-box" class="photo colour-input" name="photo" type="text" placeholder="LINK" onfocus="this.value=''"/></div>
+				<div class="colour-input-box-3"><button class="btn set-bg-photo"><i class="fas fa-check"></i></button></div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="add-new-widget-dialogue neumorphic">
+		<button class="btn-add-new-widget-dialogue-close"></button>
+		<div class="add-widget-list">
+			<a href="#" class="btn btn-add-bookmark btn-menu"><span>ADD BOOKMARK</span></a>
+			<a href="#" class="btn btn-add-blank btn-menu"><span>ADD BLANK</span></a>
+			<a href="#" class="btn btn-add-search btn-menu"><span>ADD DUCKDUCKGO</span></a>
+			<a href="#" class="btn btn-add-notepad btn-menu"><span>ADD NOTEPAD</span></a>
+			<a href="#" class="btn btn-add-photo btn-menu"><span>ADD PHOTO</span></a>	
+		</div>
+	</div>
+
+	<div class="add-bookmark-dialogue neumorphic">
+		<button class="btn-add-bookmark-close"></button>
+		<form>
+			<label for="link-name"></label><br>
+			<input type="text" id="link-name" name="link-name" placeholder="NAME"><br><br>
+			<label for="link-url"></label><br>
+			<input type="text" id="link-url" name="link-url" placeholder="LINK"><br>
+			<button class="btn-add-bookmark-submit"><i class="fas fa-check"></i></button>
+		</form>
+	</div>
+	
+	<!--<textarea id="save" style="height: 200px;width: 100%;";></textarea>
+	<textarea id="log" style="height: 200px;"></textarea>-->
+
+	<script type="text/javascript">
+		// Set new notes with a unique id
+		$(document).on("click", ":focus", function() {
+		    //console.log(this.id);
+		    if ($(this).attr("id") == "#noteNew") {
+		    	var newID = $.now();
+		    	$(this).attr('id', "note-"+newID);
+		    	//console.log(this.id)
+		    	funcSave();
+		    }
+		    if (!$(this).val()){
+		    	//console.log("empty")
+		    }
+		    // Save notes content
+		    $(this).keyup(function(){
+				var note = $.trim($(this).val());
+				//console.log(note)
+				$.localStorage.setItem(this.id, note);
+				if (!$(this).val()){
+					//console.log("empty")
+			    	$.localStorage.removeItem(this.id);
+			    }
+			});
+		})
+	</script>
+
+	<script type="text/javascript">
+		// DuckDuckGo search
+		$(document).on( "click", ".btn-duckduckgo", function(e) {
+			var search = document.getElementsByClassName("duckduckgo-input")[0].value;
+			var search2 = search.replace(/ /g, "+");
+			var base = "https://duckduckgo.com/?q="
+			if (search.length > 0){
+				window.open(base+search, '_blank');
+			}
+		});
+	</script>
+
+	<script type="text/javascript">
+		// Change background accordion menu
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+		for (i = 0; i < acc.length; i++) {
+		  acc[i].onclick = function() {
+
+			if( !this.classList.contains('active') ){
+		    	closeAll();
+		    }			
+		  this.classList.toggle("active");
+		    var panel = this.nextElementSibling;
+		    if (panel.style.maxHeight){
+		      panel.style.maxHeight = null;
+		    } else {
+		      panel.style.maxHeight = panel.scrollHeight + "px";
+		    } 
+		  }
+		};
+		function openAll(){
+		    for (i = 0; i < acc.length; i++) {
+		    	acc[i].classList.add("active");
+		        acc[i].nextElementSibling.style.maxHeight = acc[i].nextElementSibling.scrollHeight + "px";
+		    }
+		};
+		function closeAll(){
+			 for (i = 0; i < acc.length; i++) {
+		    	acc[i].classList.remove("active");
+		        acc[i].nextElementSibling.style.maxHeight = null;
+		    }
+		}
+		//document.getElementById( 'openAll' ).addEventListener( 'click', openAll);
+		//document.getElementById( 'closeAll' ).addEventListener( 'click', closeAll);
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function addcopy() {
+			$(".insert-colour-buttons").html('<button class="btn-colour-grey3"></button>\
+												<button class="btn-colour-grey4"></button>\
+												<button class="btn-colour-grey2"></button>\
+												<button class="btn-colour-grey"></button>\
+												<button class="btn-colour-white"></button>\
+												<button class="btn-colour-purple2"></button>\
+												<button class="btn-colour-purple"></button>\
+												<button class="btn-colour-blue2"></button>\
+												<button class="btn-colour-blue"></button>\
+												<button class="btn-colour-teal"></button>\
+												<button class="btn-colour-cyan"></button>\
+												<button class="btn-colour-green"></button>\
+												<button class="btn-colour-green2"></button>\
+												<button class="btn-colour-green3"></button>\
+												<button class="btn-colour-yellow"></button>\
+												<button class="btn-colour-white2"></button>\
+												<button class="btn-colour-orange"></button>\
+												<button class="btn-colour-pink"></button>\
+												<button class="btn-colour-red"></button>\
+												<button class="btn-colour-bg"></button>');
+	     });														
+	</script>
+
+	<script type="text/javascript">
+		// Grid
+	    var gridster;
+
+        gridster = $(".gridster ul").gridster({
+            widget_base_dimensions: [50, 50],
+            widget_margins: [15, 15],
+            shift_widgets_up: false,
+            shift_larger_widgets_down: false,
+            collision: {
+                wait_for_mouseup: true
+            },
+            resize: {
+                enabled: true,
+                max_size: [12, 12],
+                min_size: [1, 1]
+            },
+            draggable: {
+                handle: 'header'
+            },
+            serialize_params: function($w, wgd) {
+			 
+			    return { 
+			           id: $($w).attr('id'), 
+			           col: wgd.col, 
+			           row: wgd.row, 
+			           size_x: wgd.size_x, 
+			           size_y: wgd.size_y, 
+			           min_size_x: wgd.min_size_x,
+			           min_size_y: wgd.min_size_y,
+			           max_size_x: wgd.max_size_x,
+			           max_size_y: wgd.max_size_y,
+			           htmlContent : $($w).html()       
+			         };
+			}
+
+	        }).data('gridster');
+
+        	// Save function
+        	function funcSave(){
+		      	var s = gridster.serialize();
+	            var saveLayout = JSON.stringify(s)
+	            $.localStorage.setItem('saveLayout', saveLayout);
+		        var saveBackground = (localStorage.getItem('tempBackground'));
+		        $.localStorage.setItem('saveBackground', saveBackground);		        
+		        if("photoTrue" in localStorage){
+		        	$.localStorage.setItem('saveBackground', "#1c1c1c");
+		        } else {
+		        	$.localStorage.removeItem('photoBackground');
+		        }
+		        if($('.notification-import').is(':visible')) {
+						    $(".btn-import-save").click();						    					
+						}
+		    }
+		    function funcBgSaveTemp(col){
+	            $.localStorage.setItem('tempBackground', col);
+	            $.localStorage.removeItem('photoTrue');
+		    }
+		    function funcBgSavePhoto(photo){
+	            $.localStorage.setItem('photoBackground', photo);
+	            $.localStorage.setItem('photoTrue', "true");
+		    }
+
+		    // Generate lighter and darker values of background colour for neumorphic effect
+		    function LightenDarkenColor(col, amt) {  
+			    var usePound = false;			  
+			    if (col[0] == "#") {
+			        col = col.slice(1);
+			        usePound = true;
+			    }			 
+			    var num = parseInt(col,16);			 
+			    var r = (num >> 16) + amt;			 
+			    if (r > 255) r = 255;
+			    else if  (r < 0) r = 0;			 
+			    var b = ((num >> 8) & 0x00FF) + amt;			 
+			    if (b > 255) b = 255;
+			    else if  (b < 0) b = 0;			 
+			    var g = (num & 0x0000FF) + amt;			 
+			    if (g > 255) g = 255;
+			    else if (g < 0) g = 0;			 
+			    return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+			}
+			function lightenDarken(col) {
+				var lighten = LightenDarkenColor(col,40)
+        		var darken = LightenDarkenColor(col,-50)
+        		$('.gs-w').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-edit-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-add-new-widget').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-change-bg').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-default-layout').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-export-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-import-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.add-new-widget-dialogue').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.notification-saved').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.notification-export').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.notification-import').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+
+			}
+			function lightenDarkenOnLoad(col) {
+				var lighten = LightenDarkenColor(col,40)
+        		var darken = LightenDarkenColor(col,-50)
+        		$('.gs-w').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-edit-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-add-new-widget').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-change-bg').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-default-layout').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-export-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.btn-import-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.notification-saved').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.notification-export').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+        		$('.notification-import').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+			}
+
+		    // Colours
+		    var grey3 = "#1c1c1c"
+		    var red = "#F94144"
+		    var grey2 = "#333333"
+		    var green = "#83E377"
+		    var blue = "#79beff"
+		    var blue2 = "#577590"
+		    var white2 = "#d5deef"
+		    var yellow = "#F9C74F"
+		    var purple = "#54478C"
+		    var teal = "#0DB39E"
+		    var orange = "#F29E4C"
+		    var pink = "#ff92c2"
+		    var green2 = "#6ae1b7"
+		    var green3 = "#c3dac3"
+		    var purple2 = "#ac92a6"
+		    var white = "#e8eef2"
+		    var grey = "#7f7979"
+		    var cyan = "#4adee8"
+		    var grey4 = "#21242c"
+
+		    // Change background colour button
+		    $(document).on( "click", ".btn-bg-colour-grey3", function(e) {
+        		$('body').attr('style', 'background: '+grey3);
+        		lightenDarken(grey3);funcBgSaveTemp(grey3);
+        	});
+		    $(document).on( "click", ".btn-bg-colour-grey2", function(e) {
+        		$('body').attr('style', 'background: '+grey2);
+        		lightenDarken(grey2);funcBgSaveTemp(grey2);
+        	});        	
+        	$(document).on( "click", ".btn-bg-colour-red", function(e) {
+        		$('body').attr('style', 'background: '+red);       		
+        		lightenDarken(red);funcBgSaveTemp(red);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-green", function(e) {
+        		$('body').attr('style', 'background: '+green); 
+        		lightenDarken(green);funcBgSaveTemp(green);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-blue", function(e) {
+        		$('body').attr('style', 'background: '+blue); 
+        		lightenDarken(blue);funcBgSaveTemp(blue);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-blue2", function(e) {
+        		$('body').attr('style', 'background: '+blue2); 
+        		lightenDarken(blue2);funcBgSaveTemp(blue2);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-white2", function(e) {
+        		$('body').attr('style', 'background: '+white2); 
+        		lightenDarken(white2);funcBgSaveTemp(white2);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-yellow", function(e) {
+        		$('body').attr('style', 'background: '+yellow); 
+        		lightenDarken(yellow);funcBgSaveTemp(yellow);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-purple", function(e) {
+        		$('body').attr('style', 'background: '+purple);
+        		lightenDarken(purple);funcBgSaveTemp(purple);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-teal", function(e) {
+        		$('body').attr('style', 'background: '+teal); 
+        		lightenDarken(teal);funcBgSaveTemp(teal);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-orange", function(e) {
+        		$('body').attr('style', 'background: '+orange); 
+        		lightenDarken(orange);funcBgSaveTemp(orange);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-pink", function(e) {
+        		$('body').attr('style', 'background: '+pink); 
+        		lightenDarken(pink);funcBgSaveTemp(pink);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-green2", function(e) {
+        		$('body').attr('style', 'background: '+green2); 
+        		lightenDarken(green2);funcBgSaveTemp(green2);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-green3", function(e) {
+        		$('body').attr('style', 'background: '+green3); 
+        		lightenDarken(green3);funcBgSaveTemp(green3);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-purple2", function(e) {
+        		$('body').attr('style', 'background: '+purple2); 
+        		lightenDarken(purple2);funcBgSaveTemp(purple2);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-white", function(e) {
+        		$('body').attr('style', 'background: '+white); 
+        		lightenDarken(white);funcBgSaveTemp(white);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-grey", function(e) {
+        		$('body').attr('style', 'background: '+grey); 
+        		lightenDarken(grey);funcBgSaveTemp(grey);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-cyan", function(e) {
+        		$('body').attr('style', 'background: '+cyan); 
+        		lightenDarken(cyan);funcBgSaveTemp(cyan);
+        	});
+        	$(document).on( "click", ".btn-bg-colour-grey4", function(e) {
+        		$('body').attr('style', 'background: '+grey4); 
+        		lightenDarken(grey4);funcBgSaveTemp(grey4);
+        	});
+
+			// Custom colour preview
+			$(document).ready(function() {
+		        $('input.input').val('');
+			    $('input.input').on('keyup change', function() {
+			        //$('p.display').text('The value of the text input is: ' + $(this).val());
+			        $('.colour-preview').attr('style', 'background: '+$(this).val());
+			    });
+			});
+			// Set custom background colour
+        	$(document).on( "click", ".set-bg-colour", function(e) {
+				var colour = $("input").val();
+				$('body').css("background", colour);
+				lightenDarken(colour);funcBgSaveTemp(colour);
+
+			});
+			// Set custom background photo
+        	$(document).on( "click", ".set-bg-photo", function(e) {
+				var photo = $("#photo-input-box").val();
+				$('body').css("background", "url("+photo+") top center no-repeat");
+				$('body').css("background-size", "cover");
+				lightenDarken("#1c1c1c");
+				funcBgSavePhoto(photo);
+				$('html').removeAttr("style");
+			});
+
+        	// Change widget colour button
+        	$(document).on( "click", ".btn-colour-grey3", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", grey3);
+        	});
+        	$(document).on( "click", ".btn-colour-grey2", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", grey2);
+        	});        	
+        	$(document).on( "click", ".btn-colour-red", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", red);
+        	});
+        	$(document).on( "click", ".btn-colour-green", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", green);
+        	});
+        	$(document).on( "click", ".btn-colour-blue", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", blue);
+        	});
+        	$(document).on( "click", ".btn-colour-blue2", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", blue2);
+        	});
+        	$(document).on( "click", ".btn-colour-white2", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", white2);
+        	});
+        	$(document).on( "click", ".btn-colour-yellow", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", yellow);
+        	});
+        	$(document).on( "click", ".btn-colour-purple", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", purple);
+        	});
+        	$(document).on( "click", ".btn-colour-teal", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", teal);
+        	});
+        	$(document).on( "click", ".btn-colour-orange", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", orange);
+        	});
+        	$(document).on( "click", ".btn-colour-pink", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", pink);
+        	});
+        	$(document).on( "click", ".btn-colour-green2", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", green2);
+        	});
+        	$(document).on( "click", ".btn-colour-green3", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", green3);
+        	});
+        	$(document).on( "click", ".btn-colour-purple2", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", purple2);
+        	});
+        	$(document).on( "click", ".btn-colour-white", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", white);
+        	});
+        	$(document).on( "click", ".btn-colour-grey", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", grey);
+        	});
+        	$(document).on( "click", ".btn-colour-cyan", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", cyan);
+        	});
+        	$(document).on( "click", ".btn-colour-grey4", function(e) {
+        		$(this).parent().parent().parent().parent().parent().css("background-color", grey4);
+        	});
+
+        	// Set widget colour to background colour
+        	$(document).on( "click", ".btn-colour-bg", function(e) {
+        		var backgroundColour = (localStorage.getItem('tempBackground'));
+        		$(this).parent().parent().parent().parent().parent().css("background-color", backgroundColour);
+        	});
+
+        	// Add / Edit button
+        	var edit_save_banner = $("#btn-edit-save")
+			var edit_save_button = $("#btn-edit-save")
+
+			edit_save_button.on("click", () => {
+			edit_save_banner.toggleClass("alt");
+			$(".controls").toggle();
+			$(".gridster .gs-w").toggleClass("jiggle");
+			$(".gridster li header").toggleClass("centre");
+			$(".remove").toggle();
+			$(".btn-colour-picker").toggle();			
+			$(".circle-ripple").toggleClass("circle-ripple-play");
+			$(".buymeacoffee").toggle();
+			})
+
+			function btn_edit_save_func_1() {
+				$(".gs-resize-handle, .gs-w.dragging .gs-resize-handle").css("display", "block"); 
+			    $(this).one("click", btn_edit_save_func_2);
+			}
+			function btn_edit_save_func_2() {
+			    if($('.change_bg_popup').css('display') == 'block'){
+			    	$(".btn-change-bg").click();
+				}
+				$(".gs-resize-handle, .gs-w.dragging .gs-resize-handle").css("display", "none");
+			    funcSave();
+			    $(".notification-saved").toggle();
+			    setTimeout(function () {
+			    			$(".notification-saved").removeClass("notification-visible");
+							$(".notification-saved").addClass("notification-hidden");        
+						}, 2000);
+			    setTimeout(function () {      
+							$(".notification-saved").toggle();
+			    			$(".notification-saved").addClass("notification-visible");        
+						}, 2000);
+			    
+			    $(this).one("click", btn_edit_save_func_1);
+			}
+			$("#btn-edit-save").one("click", btn_edit_save_func_1);
+
+			// Escape pressed
+			$(document).keyup(function(e) {
+			     if (e.key === "Escape") {
+					if($('.btn-add-new-widget').is(':visible')) {
+							location.reload();
+						} else {
+							//
+						}		
+			    }
+			});
+
+			// Open add-new-widget-dialogue 
+			$(document).on( "click", ".btn-add-new-widget", function(e) {
+				$(".add-new-widget-dialogue").toggle();
+			});
+
+			// Show add-bookmark-dialogue 
+			$(document).on( "click", ".btn-add-bookmark", function(e) {
+				$('#link-name').val('');
+				$('#link-url').val('');
+				$(".add-bookmark-dialogue").css("display","block");
+				$("#link-name").focus();
+			});
+
+			// Close add-new-widget-dialogue 
+			$(document).on( "click", ".btn-add-new-widget-dialogue-close", function(e) {
+				$(".btn-add-new-widget").click();
+			});
+
+			// Close add-bookmark-dialogue 
+			$(document).on( "click", ".btn-add-bookmark-close", function(e) {
+				$(".add-bookmark-dialogue").toggle();
+			});
+
+			// Change background
+			function btn_change_bg_func_1() {			    
+			    $(".change_bg_popup").css("display","block");
+			    $(this).one("click", btn_change_bg_func_2);
+			}
+			function btn_change_bg_func_2() {
+			    $(".change_bg_popup").css("display","none");
+			    $(this).one("click", btn_change_bg_func_1);
+			}
+			$(".btn-change-bg").one("click", btn_change_bg_func_1);
+
+			// Focus colour input
+			$(document).on( "click", "#btn-custom-colour", function(e) {
+				$("#colour-input-box").focus();
+			});
+
+			// Focus photo input
+			$(document).on( "click", "#btn-custom-photo", function(e) {
+				$("#photo-input-box").focus();
+			});	
+		
+			// Export Button
+			$(document).on( "click", ".btn-export-save", function(e) {
+					value = JSON.stringify(localStorage) //+';Object.keys(data).forEach(function (k){localStorage.setItem(k, data[k]);});'		 
+					var $temp = $("<input>");
+					$("body").append($temp);
+					$temp.val(value).select();
+					document.execCommand("copy");
+					$temp.remove();
+					if($('.notification-export').is(':visible')) {
+					    // 
+					} else {
+						if($('.notification-import').is(':visible')) {
+					    	$(".notification-export").toggle()
+					    	$(".notification-export").addClass('notification-export-lower')
+						} else {
+							$(".notification-export").toggle();
+						}
+					}
+		    });
+
+			// Import Button 
+			var banner = $(".btn-import-save")
+			var button = $(".btn-import-save")
+			button.on("click", () => {
+			banner.toggleClass("alt");			
+			})
+			var handler = function (ev) { 
+					// function to check ctrl+v detection 
+					ev = ev || window.event;
+					var key = ev.which || ev.keyCode;				
+					var ctrl = ev.ctrlKey ? ev.ctrlKey : ((key === 17) 
+						? true : false); 
+					if (key == 86 && ctrl) { 
+						var newElement = $('<textarea id="pasteArea" style="width:50px;height:50px;opacity:0;"></textarea>');
+						$('body').append(newElement);
+						$('#pasteArea').focus();
+						localStorage.clear();
+						setTimeout(
+							function() {
+								var pasteSave = $('#pasteArea').val();								
+								var data = JSON.parse(pasteSave);
+								$(document).ready(function(){
+								 $.each(data, function(index,value){
+								  localStorage.setItem(index, value);
+								 });
+								});
+								location.reload();
+							}, 1000);			
+					}
+				}
+			function import_save_func_1() {
+				if($('.notification-export').is(':visible')) {
+						    $(".notification-export").toggle();						    					
+						}		
+				$("#press-ctrl-v").toggle();
+				window.document.addEventListener("keydown", handler);
+			    $(this).one("click", import_save_func_2);
+			}
+			function import_save_func_2() {
+				if($('.notification-export').is(':visible')) {
+					    $(".notification-export").toggle();						
+					}
+				$(".notification-import").toggle();
+				window.document.removeEventListener("keydown", handler);
+			    $(this).one("click", import_save_func_1);
+			}
+			$(".btn-import-save").one("click", import_save_func_1);
+
+
+	        // Remove widget
+	      	$('body').on( "click", ".gridster ul > li .remove", function() {
+				var id = $(this).siblings('textarea').attr("id");
+				if (id === undefined) {
+					gridster.remove_widget($(this).closest('li'));
+				} else {
+					if (id.match("noteNew")) {
+						localStorage.removeItem(id)
+						gridster.remove_widget($(this).closest('li'));
+					}
+					if (id.match("^note-")) {
+						localStorage.removeItem(id)
+						gridster.remove_widget($(this).closest('li'));
+					}
+				}
+			});
+
+			// Remove notification export
+	      	$('body').on( "click", ".remove-notification-export", function() {			
+				$(".notification-export").toggle();
+			});
+			
+			// Widget basics
+			var widget_basics = '<div class="widget-colour" style="background: linear-gradient(-45deg,var(--gd1),var(--gd2));background-color:rgb(33, 36, 44);">\
+			<div class="convex"><header class="hidden centre"></header>\
+									<div class="btn-colour-picker visible">\
+										<div class="colour-picker">\
+											<div class="widget-colour-picker">\
+												<button class="btn-colour-grey3"></button>\
+												<button class="btn-colour-grey4"></button>\
+												<button class="btn-colour-grey2"></button>\
+												<button class="btn-colour-grey"></button>\
+												<button class="btn-colour-white"></button>\
+												<button class="btn-colour-purple2"></button>\
+												<button class="btn-colour-purple"></button>\
+												<button class="btn-colour-blue2"></button>\
+												<button class="btn-colour-blue"></button>\
+												<button class="btn-colour-teal"></button>\
+												<button class="btn-colour-cyan"></button>\
+												<button class="btn-colour-green"></button>\
+												<button class="btn-colour-green2"></button>\
+												<button class="btn-colour-green3"></button>\
+												<button class="btn-colour-yellow"></button>\
+												<button class="btn-colour-white2"></button>\
+												<button class="btn-colour-orange"></button>\
+												<button class="btn-colour-pink"></button>\
+												<button class="btn-colour-red"></button>\
+												<button class="btn-colour-bg"></button>\
+											</div>\
+										</div>\
+									</div><button class="remove visible"></button><div class="visible"><span class="gs-resize-handle gs-resize-handle-both"></i></span></div>'
+
+			// Add new bookmark widget
+			$(document).on( "click", ".btn-add-bookmark-submit", function(e) {
+				var linkname = $("#link-name").val();
+				var linkurl = $("#link-url").val();
+			    e.preventDefault(); 
+			    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=1 data-min-sizey=1 data-max-sizex=5 data-max-sizey=5>'+widget_basics+'<div class="widget-link"><a href="' + linkurl + '">' + linkname + '</a></div></div></li>', 3, 1]);
+			    $(".add-bookmark-dialogue").css("display","none");
+			    var backgroundColour = (localStorage.getItem('tempBackground'));
+			    lightenDarken(backgroundColour);
+			});
+			
+
+			// Add new blank widget
+			$(document).on( "click", ".btn-add-blank", function(e) {
+			    e.preventDefault(); 
+			    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=2 data-min-sizey=2 data-max-sizex=4 data-max-sizey=4>'+widget_basics+'</div></div></li>', 2, 2]);
+			    var backgroundColour = (localStorage.getItem('tempBackground'));
+			    lightenDarken(backgroundColour);
+			});
+
+			// Add new search widget
+			$(document).on( "click", ".btn-add-search", function(e) {
+			    e.preventDefault(); 
+			    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=4 data-min-sizey=1 data-max-sizex=10 data-max-sizey=1>'+widget_basics+'<div class="search-bar">\
+			    											<div style="width: 100%;height:100%;"><form><input class="duckduckgo-input" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-duckduckgo" type="button"><i class="fas fa-search"></i></button></form></div>\
+			    										</div></div></li>', 8, 1]);
+			    var backgroundColour = (localStorage.getItem('tempBackground'));
+			    lightenDarken(backgroundColour);
+			});
+
+			// Add new notepad widget
+			$(document).on( "click", ".btn-add-notepad", function(e) {
+			    e.preventDefault(); 
+			    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=2 data-min-sizey=2 data-max-sizex=12 data-max-sizey=12>'+widget_basics+'<textarea id="#noteNew" placeholder="Notes"></textarea></div></div></li>', 2, 2]);
+			    var backgroundColour = (localStorage.getItem('tempBackground'));
+			    lightenDarken(backgroundColour);
+			});
+
+			// Add new photo widget
+			$(document).on( "click", ".btn-add-photo", function(e) {
+			    e.preventDefault(); 
+			    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=2 data-min-sizey=2 data-max-sizex=4 data-max-sizey=4>'+widget_basics+'</div></div></li>', 2, 2]);
+			    var backgroundColour = (localStorage.getItem('tempBackground'));
+			    lightenDarken(backgroundColour);
+			});
+
+	        // Restore default layout
+            $('.btn-default-layout').on('click', function () {
+	            localStorage.clear();
+	            $.localStorage.setItem('tempBackground', '#1c1c1c');
+	            location.reload();
+	        });                      
+
+            // Restore layout on load
+	        $(document).ready(function(){
+				if("saveLayout" in localStorage){
+					gridster.remove_all_widgets();
+				   	var restoreLayout = JSON.parse(localStorage.getItem('saveLayout'));
+				   	var restoreBackground = (localStorage.getItem('saveBackground'));
+				   	$.localStorage.setItem('tempBackground', restoreBackground);
+		        	$.each(restoreLayout, function (index, value) {
+						gridster.add_widget('<li ' + 'data-min-sizex="'+value.min_size_x+'"' + 'data-min-sizey="'+value.min_size_y+'"' + 'data-max-sizex="'+value.max_size_x+'"' + 'data-max-sizey="'+value.max_size_y+'"' + 'class="'+value.colour+'"' + '/>' + value.htmlContent, this.size_x, this.size_y, this.col, this.row); 
+					if("photoBackground" in localStorage){
+						var restorePhotoBackground = (localStorage.getItem('photoBackground'));
+						$('body').css("background", "url("+restorePhotoBackground+") top center no-repeat");
+						$('body').css("background-size", "cover");
+						lightenDarkenOnLoad("#1c1c1c");
+						setTimeout(function () {      
+							$(".loading-page").addClass("loading-page-hidden");         
+						}, 800);
+					} else{
+						$('body').css("background", restoreBackground);
+						lightenDarkenOnLoad(restoreBackground);
+						setTimeout(function () {      
+							$(".loading-page").addClass("loading-page-hidden");         
+						}, 800);
+					}
+									
+		        	});	
+				} else {
+					setTimeout(function () {      
+				         $(".loading-page").addClass("loading-page-hidden");         
+					}, 800);
+				};
+			});
+
+			// Restore Notes
+			$(document).ready(function(){
+	            for (var key in localStorage){
+	            	if (key.match("^note-")){
+	            		//console.log(key)
+	            		var note = (localStorage.getItem(key));
+	            		//console.log(note)
+	            		$("#"+key).val(note);
+	            	}			   
+				}
+			});
+
+			// Focus DuckDuckGo on load
+            $(document).ready(function(){
+            	$(".duckduckgo-input").focus();
+            }); 
+	</script>
+
+</body>
+</html>
