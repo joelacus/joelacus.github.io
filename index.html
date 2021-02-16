@@ -95,7 +95,7 @@
 							</div>
 							<button class="remove hidden"></button>
 							<div class="search-bar">
-								<div style="width: 100%;height:100%;"><form><input class="duckduckgo-input" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-duckduckgo" type="button"><i class="fas fa-search"></i></button></form></div>
+								<div style="width: 100%;height:100%;"><form onSubmit="return false;"><input class="duckduckgo-input" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-duckduckgo" type="button"><i class="fas fa-search"></i></button></form></div>
 							</div>
 						</div>
 					</div>
@@ -251,8 +251,25 @@
 			var search2 = search.replace(/ /g, "+");
 			var base = "https://duckduckgo.com/?q="
 			if (search.length > 0){
-				window.open(base+search, '_blank');
+				window.location.href = base+search;
 			}
+		});
+
+		$(document).ready(function() {
+			$('.duckduckgo-input').bind("enterKey",function(e){
+			   	var search = document.getElementsByClassName("duckduckgo-input")[0].value;
+				var search2 = search.replace(/ /g, "+");
+				var base = "https://duckduckgo.com/?q="
+				if (search.length > 0){
+					window.location.href = base+search;
+				}
+			});
+			$('.duckduckgo-input').keyup(function(e){
+			    if(e.keyCode == 13)
+			    {
+			        $(this).trigger("enterKey");
+			    }
+			});
 		});
 	</script>
 
@@ -913,6 +930,7 @@
 									
 		        	});	
 				} else {
+					//$(".btn-edit-save").click();$(".btn-edit-save").click();
 					setTimeout(function () {      
 				         $(".loading-page").addClass("loading-page-hidden");         
 					}, 800);
@@ -923,9 +941,7 @@
 			$(document).ready(function(){
 	            for (var key in localStorage){
 	            	if (key.match("^note-")){
-	            		//console.log(key)
 	            		var note = (localStorage.getItem(key));
-	            		//console.log(note)
 	            		$("#"+key).val(note);
 	            	}			   
 				}
