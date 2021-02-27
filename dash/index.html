@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+
+<html lang="en-GB">
+<title>Dash</title>
+
+<!-- = Styles = -->
+	<link href="main.css" rel="stylesheet" type="text/css" />
+	<link href="gridster.css" rel="stylesheet" type="text/css" />
+
+<!-- = Scripts = -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="html5storage.min.js"></script>
+	<script src="colours-main.js"></script>
+	<script src="https://dsmorse.github.io/gridster.js/dist/jquery.gridster.min.js"></script>
+	
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+
+	<div class="loading-page loading-page-visible"><div class="spinner"></div></div>
+	<div class="notification-saved hidden"><span>Saved</span></div>
+
+	<script type="text/javascript">
+		var restoreBackground = (localStorage.getItem('saveBackground'));
+		$(".loading-page").css("background",restoreBackground);
+	</script>
+
+	<style type="text/css">
+	:root {
+		--gd1: rgba(0,0,0,0.22);
+		--gd2: rgba(255,255,255,0.3);
+		--theme-br: 22px;
+		--theme-grey: #282c30;
+	}
+	</style>
+</head>
+<body>
+	<div><span style="color:#fff;position:fixed;top:5px;">This site is a work in progress!</span></div>
+
+	<div class="buymeacoffee hidden"><script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="customdash" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ff0000" data-coffee-color="#000000" ></script></div>
+
+	<div class="gridster">
+	    <ul>
+			<li data-min-sizex="4" data-min-sizey="1" data-max-sizex="10" data-max-sizey="1" class="gs-w" data-col="9" data-row="4" data-sizex="8" data-sizey="1">
+				<div class="widget-colour" style="background-color: rgb(84, 71, 140);">
+					<div class="widget-bg-style convex"><header class="hidden"></header>
+						<div class="btn-colour-picker hidden">
+							<div class="colour-picker">
+								<div class="widget-colour-picker insert-colour-buttons">
+									<!-- will insert colour buttons html -->
+								</div>
+							</div>
+						</div>
+						<button class="remove hidden"></button>
+						<div class="search-bar">
+							<div style="width: 100%;height:100%;"><form onSubmit="return false;"><input class="duckduckgo-input" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-duckduckgo" type="button"><i class="fas fa-search"></i></button></form></div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li data-min-sizex="1" data-min-sizey="1" data-max-sizex="5" data-max-sizey="5" data-col="9" data-row="6" data-sizex="2" data-sizey="1">
+				<div class="widget-colour" style="background-color: rgb(249, 65, 68);">
+					<div class="widget-bg-style convex"><header class="hidden"></header>
+						<div class="btn-colour-picker hidden">
+							<div class="colour-picker">
+								<div class="widget-colour-picker insert-colour-buttons">
+									<!-- will insert colour buttons html -->
+								</div>
+							</div>
+						</div>
+						<button class="remove hidden"></button>
+						<div class="widget-link">
+							<a href="https://www.youtube.com">Youtube</a>
+						</div>
+					</div>					
+				</div>
+			</li>
+			<li data-min-sizex="1" data-min-sizey="1" data-max-sizex="5" data-max-sizey="5" data-col="11" data-row="6" data-sizex="2" data-sizey="1">
+				<div class="widget-colour" style="background-color: rgb(242, 158, 76);">
+					<div class="widget-bg-style convex"><header class="hidden"></header>
+						<div class="btn-colour-picker hidden">
+							<div class="colour-picker">
+								<div class="widget-colour-picker insert-colour-buttons">
+									<!-- will insert colour buttons html -->
+								</div>
+							</div>
+						</div>
+						<button class="remove hidden"></button>
+						<div class="widget-link">
+							<a href="https://www.reddit.com">Reddit</a>
+						</div>
+					</div>					
+				</div>
+			</li>
+	    </ul>
+	</div>	
+
+
+	<div class="button-container">
+		<div id="btn-edit-save" class="tooltip"><span class="tooltiptext" style="margin-left:-35px;">Edit / Save</span>
+			<div id="ripple" class="circle-ripple"></div>
+		  	<button id="btn-edit-save" class="btn btn-edit-save convex" ><span></span></button>
+		</div> 
+
+		<div class="controls hidden">  		    
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:55px;">Add New Widgets</span><a class="btn btn-add-new-widget convex"><span><i class="fas fa-plus"></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:145px;">Appearance</span><a class="btn btn-background-dialogue convex"><span><i class="far fa-image"></i></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:235px;">Reset To<br>Default</span><a class="btn btn-default-layout convex"><span><i class="fas fa-undo-alt"></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:325px;">Copy Save<br>To Clipboard</span><a class="btn btn-export-save convex"><span><i class="fas fa-file-export"></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:415px;">Import Save From Clipboard</span><a class="btn btn-import-save convex"><span><i class="fas fa-file-upload"></i></span></a></div>
+		</div>		
+	</div>
+
+	<div class="dialogue neumorphic add-new-widget-dialogue">
+		<button class="btn-dialogue-close btn-add-new-widget-dialogue-close"><i class="fas fa-times"></i></button>
+		<div class="add-widget-list">
+			<a href="#" class="btn btn-menu btn-neumorphic btn-add-bookmark"><span>ADD BOOKMARK</span></a>
+			<a href="#" class="btn btn-menu btn-neumorphic btn-add-blank"><span>ADD BLANK</span></a>
+			<a href="#" class="btn btn-menu btn-neumorphic btn-add-search"><span>ADD DUCKDUCKGO</span></a>
+			<a href="#" class="btn btn-menu btn-neumorphic btn-add-notepad"><span>ADD NOTEPAD</span></a>
+			<a href="#" class="btn btn-menu btn-neumorphic btn-add-photo"><span>ADD PHOTO</span></a>	
+		</div>
+	</div>
+
+	<div class="dialogue neumorphic add-bookmark-dialogue">
+		<button class="btn-dialogue-close btn-add-bookmark-close"><i class="fas fa-times"></i></button>
+		<form>
+			<label for="link-name"></label><br>
+			<input type="text" id="link-name" name="link-name" placeholder="NAME"><br><br>
+			<label for="link-url"></label><br>
+			<input type="text" id="link-url" name="link-url" placeholder="LINK"><br>
+			<button class="btn-add-bookmark-submit"><i class="fas fa-check"></i></button>
+		</form>
+	</div>
+
+	<div class="dialogue neumorphic background-dialogue">
+		<button class="btn-dialogue-close btn-background-dialogue-close"><i class="fas fa-times"></i></button>
+		<button class="accordion active" id="btn-preset-colour">Background Colour Presets</button>
+		<div class="panel" style="max-height:84px;">
+			<div class="accordion-item">
+				<button class="btn-colour-grey3 btn-bg-colour-grey3"></button>
+				<button class="btn-colour-grey4 btn-bg-colour-grey4"></button>
+				<button class="btn-colour-grey2 btn-bg-colour-grey2"></button>
+				<button class="btn-colour-grey btn-bg-colour-grey"></button>				
+				<button class="btn-colour-white btn-bg-colour-white"></button>
+				<button class="btn-colour-purple2 btn-bg-colour-purple2"></button>
+				<button class="btn-colour-purple btn-bg-colour-purple"></button>
+				<button class="btn-colour-blue2 btn-bg-colour-blue2"></button>
+				<button class="btn-colour-blue btn-bg-colour-blue"></button>
+				<button class="btn-colour-teal btn-bg-colour-teal"></button>
+				<button class="btn-colour-cyan btn-bg-colour-cyan"></button>
+				<button class="btn-colour-green btn-bg-colour-green"></button>
+				<button class="btn-colour-green2 btn-bg-colour-green2"></button>
+				<button class="btn-colour-green3 btn-bg-colour-green3"></button>
+				<button class="btn-colour-yellow btn-bg-colour-yellow"></button>									
+				<button class="btn-colour-white2 btn-bg-colour-white2"></button>
+				<button class="btn-colour-orange btn-bg-colour-orange"></button>
+				<button class="btn-colour-pink btn-bg-colour-pink"></button>
+				<button class="btn-colour-red btn-bg-colour-red"></button>
+			</div>
+		</div>
+		<button class="accordion" id="btn-custom-colour">Background Custom Colour</button>
+		<div class="panel custom-colour" style="margin-left: -12px;">
+			<div class="colour-preview">
+				<div class="accordion-item">
+					<div class="colour-input-box-2"><input id="colour-input-box" class="colour-input" name="input" type="text" placeholder="HEX #21242C" onfocus="this.value=''"/></div>
+					<div class="colour-input-box-3"><button class="btn-neumorphic set-bg-colour"><i class="fas fa-check"></i></button></div>
+				</div>
+			</div> 
+		</div>
+		<!--<button class="accordion">Gradient</button>
+		<div class="panel">
+		  <p>asdf</p>
+		</div>-->
+		<button class="accordion" id="btn-custom-photo">Background Photo</button>
+		<div class="panel">
+		  	<div class="accordion-item" style="margin-left: -12px;">
+		  		<div class="custom-photo-happy">Yay! Thank You! :D</div>
+				<div class="colour-input-box-2"><input id="photo-input-box" class="photo colour-input" name="photo" type="text" placeholder="IMAGE LINK" onfocus="this.value=''"/></div>
+				<div class="colour-input-box-3"><button class="btn-neumorphic set-bg-photo"><i class="fas fa-check"></i></button></div>
+			</div>
+		</div>
+		<button class="accordion" id="btn-radius-amount">UI Corner Radius</button>
+		<div class="panel">
+		  	<div class="accordion-item">
+				<button class="btn-neumorphic" id="btn-set-radius-2"><div class="radius-amount" style="border-top-left-radius:2px;"></div></button>
+				<button class="btn-neumorphic" id="btn-set-radius-5"><div class="radius-amount" style="border-top-left-radius:5px;"></div></button>
+				<button class="btn-neumorphic" id="btn-set-radius-10"><div class="radius-amount" style="border-top-left-radius:10px;"></div></button>
+				<button class="btn-neumorphic" id="btn-set-radius-15"><div class="radius-amount" style="border-top-left-radius:15px;"></div></button>
+				<button class="btn-neumorphic" id="btn-set-radius-22"><div class="radius-amount" style="border-top-left-radius:22px;"></div></button>
+			</div>
+		</div>
+		<button class="accordion" id="btn-other">Other Styles</button>
+		<div class="panel">
+		  	<div class="accordion-item" style="margin-left: -12px;">
+		  		<div class="appearance-other-item"><span>Widget/Button 3D Effect</span></div>
+		  		<div class="appearance-other-item-toggle">
+					<label class="label">
+						<div class="toggle">
+							<input id="checkbox-shadow" class="toggle-state" type="checkbox" value="false" checked="true" />
+							<div class="indicator"></div>
+						</div>
+					</label>
+				</div>
+				<div class="appearance-other-item" style="margin-top: 30px;"><span>Widget/Button Gradient</span></div>
+		  		<div class="appearance-other-item-toggle" style="margin-top: -30px;">
+					<label class="label">
+						<div class="toggle">
+							<input id="checkbox-gradient" class="toggle-state" type="checkbox" value="false" checked="true" />
+							<div class="indicator"></div>
+						</div>
+					</label>
+				</div>
+			</div>
+		</div>
+			
+	</div>
+
+
+	<div class="dialogue neumorphic export-save-dialogue">
+		<button class="btn-dialogue-close btn-export-save-dialogue-close"><i class="fas fa-times"></i></button>
+		<div class="export-icons"><i class="far fa-file-code"></i><i class="fas fa-long-arrow-alt-right"></i><i class="far fa-clipboard"></i></div>
+		<div class="export-message">
+			<span>Save Data Has Been Copied To The Clipboard.<br>Please Paste This In A New Text File To Save</span><br><span style="font-size: 14px;">make sure to save after editing first</span>
+		</div>
+	</div>
+
+	<div class="dialogue neumorphic import-save-dialogue">
+		<button class="btn-dialogue-close btn-import-save-dialogue-close"><i class="fas fa-times"></i></button>
+		<div class="import-icons"><i class="far fa-clipboard"></i><i class="fas fa-long-arrow-alt-right"></i><i class="fas fa-file-upload"></i></div>
+		<div class="import-message">
+			<span>Copy Save Data, Then Press CTRL+V Here</span><br><span style="font-size: 14px;">only works whilst this window is open</span>
+		</div>
+	</div>
+
+	<div class="dialogue neumorphic reset-confirm-dialogue">
+		<button class="btn-dialogue-close btn-reset-confirm-dialogue-close"><i class="fas fa-times"></i></button>
+		<div class="reset-confirm-icons"><i class="fas fa-exclamation-triangle"></i></div>
+		<div class="reset-confirm-message">
+			<span>This Will Restore Everything To Default.<br>Are You Sure?</span><br><span style="font-size: 14px;">last chance to backup save data</span>
+		</div>
+		<button class="btn-reset-confirm-yes btn-neumorphic">Yes, Reset</button>
+		<button class="btn-reset-confirm-no btn-neumorphic">No, Go Back</button>
+	</div>
+
+	<script type="text/javascript">
+		// Set new notes with a unique id
+		$(document).on("click", ":focus", function() {
+		    if ($(this).attr("id") == "#noteNew") {
+		    	var newID = $.now();
+		    	$(this).attr('id', "note-"+newID);
+		    	funcSaveNotes();
+		    }
+		    // Save notes content
+		    $(this).keyup(function(){
+				var note = $.trim($(this).val());
+				$.localStorage.setItem(this.id, note);
+				if (!$(this).val()){
+			    	$.localStorage.removeItem(this.id);
+			    }
+			});
+		})
+	</script>
+
+	<script type="text/javascript">
+		// DuckDuckGo search
+		$(document).on( "click", ".btn-duckduckgo", function(e) {
+			var search = $(this).siblings(".duckduckgo-input")[0].value;
+			var search2 = search.replace(/ /g, "+");
+			var base = "https://duckduckgo.com/?q="
+			//console.log(base+search);
+			if (search.length > 0){
+				window.location.href = base+search;
+			}
+		});
+		$(document).on("keypress", "input", function(e){
+	        if(e.which == 13){
+	            var search = $(this).val();
+				var search2 = search.replace(/ /g, "+");
+				var base = "https://duckduckgo.com/?q="
+				if (search.length > 0){
+					window.location.href = base+search;
+				}
+	        }
+	    });
+	</script>
+
+	<script type="text/javascript">
+		// Change background accordion menu
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+		for (i = 0; i < acc.length; i++) {
+		  acc[i].onclick = function() {
+
+			if( !this.classList.contains('active') ){
+		    	closeAll();
+		    }			
+		  this.classList.toggle("active");
+		    var panel = this.nextElementSibling;
+		    if (panel.style.maxHeight){
+		      panel.style.maxHeight = null;
+		    } else {
+		      panel.style.maxHeight = panel.scrollHeight + "px";
+		    } 
+		  }
+		};
+		function openAll(){
+		    for (i = 0; i < acc.length; i++) {
+		    	acc[i].classList.add("active");
+		        acc[i].nextElementSibling.style.maxHeight = acc[i].nextElementSibling.scrollHeight + "px";
+		    }
+		};
+		function closeAll(){
+			 for (i = 0; i < acc.length; i++) {
+		    	acc[i].classList.remove("active");
+		        acc[i].nextElementSibling.style.maxHeight = null;
+		    }
+		}
+		//document.getElementById( 'openAll' ).addEventListener( 'click', openAll);
+		//document.getElementById( 'closeAll' ).addEventListener( 'click', closeAll);
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function addcopy() {
+			$(".insert-colour-buttons").html('<button class="btn-colour-grey3"></button>\
+												<button class="btn-colour-grey4"></button>\
+												<button class="btn-colour-grey2"></button>\
+												<button class="btn-colour-grey"></button>\
+												<button class="btn-colour-white"></button>\
+												<button class="btn-colour-purple2"></button>\
+												<button class="btn-colour-purple"></button>\
+												<button class="btn-colour-blue2"></button>\
+												<button class="btn-colour-blue"></button>\
+												<button class="btn-colour-teal"></button>\
+												<button class="btn-colour-cyan"></button>\
+												<button class="btn-colour-green"></button>\
+												<button class="btn-colour-green2"></button>\
+												<button class="btn-colour-green3"></button>\
+												<button class="btn-colour-yellow"></button>\
+												<button class="btn-colour-white2"></button>\
+												<button class="btn-colour-orange"></button>\
+												<button class="btn-colour-pink"></button>\
+												<button class="btn-colour-red"></button>\
+												<button class="btn-colour-bg"></button>');
+	     });														
+	</script>
+
+	<script type="text/javascript">
+		// Grid
+		var gridster = null;
+        $(document).ready(function () {
+            gridster = $(".gridster ul").gridster({
+                widget_base_dimensions: ['auto', 50],
+                autogenerate_stylesheet: true,
+                shift_widgets_up: false,
+            	shift_larger_widgets_down: false,
+            	collision: {
+	                wait_for_mouseup: true
+	            },
+                min_cols: 1,
+                max_cols: 24,
+                widget_margins: [15, 15],
+                resize: {
+	                enabled: true,
+	                max_size: [12, 12],
+	                min_size: [1, 1]
+	            },
+                serialize_params: function($w, wgd) {			 
+				    return { 
+				           id: $($w).attr('id'), 
+				           col: wgd.col, 
+				           row: wgd.row, 
+				           size_x: wgd.size_x, 
+				           size_y: wgd.size_y, 
+				           min_size_x: wgd.min_size_x,
+				           min_size_y: wgd.min_size_y,
+				           max_size_x: wgd.max_size_x,
+				           max_size_y: wgd.max_size_y,
+				           htmlContent : $($w).html()       
+				         };
+				}
+            }).data('gridster');
+            $('.gridster  ul').css({'padding': '0'});
+        });
+
+        function funcSaveNotes(){
+        	var s = gridster.serialize();
+            var saveLayout = JSON.stringify(s)
+            $.localStorage.setItem('saveLayout', saveLayout);
+        }
+
+    	// Save function
+    	function funcSave(){
+	      	var s = gridster.serialize();
+            var saveLayout = JSON.stringify(s)
+            $.localStorage.setItem('saveLayout', saveLayout);
+            $.localStorage.setItem('saveRadius', widget_radius);
+            $.localStorage.setItem('saveIs3D', styleIs3D);
+            $.localStorage.setItem('saveHasGradient', styleHasGradient);
+            console.log(backgroundColour)
+	        if (isPhotoBackground === true){
+            	$.localStorage.setItem('savePhotoBackground', photoBackground);
+            	$.localStorage.removeItem('saveBackground');
+            } else {
+            	$.localStorage.removeItem('savePhotoBackground');
+            	$.localStorage.setItem('saveBackground', backgroundColour);
+            }
+	    }
+
+	    // Generate lighter and darker values of background colour for neumorphic effect
+	    window.LightenDarkenColor = function(col, amt) {  
+		    var usePound = false;			  
+		    if (col[0] == "#") {
+		        col = col.slice(1);
+		        usePound = true;
+		    }			 
+		    var num = parseInt(col,16);			 
+		    var r = (num >> 16) + amt;			 
+		    if (r > 255) r = 255;
+		    else if  (r < 0) r = 0;			 
+		    var b = ((num >> 8) & 0x00FF) + amt;			 
+		    if (b > 255) b = 255;
+		    else if  (b < 0) b = 0;			 
+		    var g = (num & 0x0000FF) + amt;			 
+		    if (g > 255) g = 255;
+		    else if (g < 0) g = 0;			 
+		    return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+		}
+		window.lightenDarken = function(col) {
+			var lighten = LightenDarkenColor(col,40)
+			var darken = LightenDarkenColor(col,-50)
+    		$('.gs-w').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+    		$('.btn-edit-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+    		$('.btn-add-new-widget').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+    		$('.btn-background-dialogue').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+    		$('.btn-default-layout').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+    		$('.btn-export-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+    		$('.btn-import-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+		}
+		window.lightenDarkenOnLoad = function(col) {
+			var restoreIs3D = JSON.parse(localStorage.getItem('saveIs3D'));
+			if (restoreIs3D === false){
+	        	$('#checkbox-shadow').prop('checked', false);
+	        	$('.gs-w').attr('style', 'box-shadow: none;');
+                $('.btn-edit-save').attr('style', 'box-shadow: none;');
+	    		$('.btn-add-new-widget').attr('style', 'box-shadow: none;');
+	    		$('.btn-background-dialogue').attr('style', 'box-shadow: none;');
+	    		$('.btn-default-layout').attr('style', 'box-shadow: none;');
+	    		$('.btn-export-save').attr('style', 'box-shadow: none;');
+	    		$('.btn-import-save').attr('style', 'box-shadow: none;');
+	        } else if (restoreIs3D === true){
+	        	$('#checkbox-shadow').prop('checked', true);
+	        	var lighten = LightenDarkenColor(col,40)
+	    		var darken = LightenDarkenColor(col,-50)
+	    		$('.gs-w').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+	    		$('.btn-edit-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+	    		$('.btn-add-new-widget').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+	    		$('.btn-background-dialogue').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+	    		$('.btn-default-layout').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+	    		$('.btn-export-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+	    		$('.btn-import-save').attr('style', 'box-shadow: 5px 5px 13px ' +darken+', -5px -5px 13px ' +lighten+';');
+	        }
+		}
+
+		// Custom colour preview
+		$(document).ready(function() {
+	        $('#colour-input-box').val('');
+		    $('#colour-input-box').on('keyup change', function() {
+		        $('.colour-preview').attr('style', 'background: '+$(this).val());
+		    });
+		});
+
+		// Set custom background colour
+    	$(document).on( "click", ".set-bg-colour", function(e) {
+			var colour = $("#colour-input-box").val();
+			$('body').css("background", colour);
+			lightenDarken(colour);
+			window.backgroundColour = colour
+			window.isPhotoBackground = false
+		});
+
+		// Set custom background photo
+		var count = 0;
+    	$(document).on( "click", ".set-bg-photo", function(e) {
+    		varphoto = $("#photo-input-box").val();
+    		if (varphoto === ''){    			
+    			if (count === 0) {
+		            $("#photo-input-box").attr("placeholder", "I need the link first :/");
+		        } else if (count === 1) {
+		            $("#photo-input-box").attr("placeholder", "Please can I have the link");
+		        } else if (count === 2) {
+		            $("#photo-input-box").attr("placeholder", "Paste it here, in this box");
+		        } else if (count === 3) {
+		            $("#photo-input-box").attr("placeholder", "Why aren't you giving it?");
+		        } else if (count === 4) {
+		            $("#photo-input-box").attr("placeholder", "I have one job. Please :(");
+		        } else if (count === 5) {
+		            $("#photo-input-box").attr("placeholder", "Let me fulfill my purpose");
+		        } else if (count === 6) {
+		            $("#photo-input-box").attr("placeholder", "Stop it, if I can't help...");
+		        } else if (count === 7) {
+		            $("#photo-input-box").attr("placeholder", "I'm sad now :'(");
+		        } else if (count === 8) {
+		            $("#photo-input-box").attr("placeholder", "Please...");
+		        } 
+		        count += 1;
+    		} else {    			
+				if (count >= 1){
+					$(".custom-photo-happy").css("display", "block");
+					count = 0;
+					$("#photo-input-box").attr("placeholder", "IMAGE LINK");
+					setTimeout(function () {      
+				        $(".custom-photo-happy").css("display", "none");
+					}, 5000);						
+				}    			
+				window.photoBackground = varphoto
+				window.isPhotoBackground = true
+				$('body').css("background", "url("+photoBackground+") top center no-repeat");
+				$('body').css("background-size", "cover");
+				var restoreIs3D = JSON.parse(localStorage.getItem('saveIs3D'));
+				if (restoreIs3D === true){
+					lightenDarken("#1c1c1c");
+					backgroundColour = "1c1c1c"
+				}				
+			}
+		});    	
+
+    	// Set widget colour to background colour
+    	$(document).on( "click", ".btn-colour-bg", function(e) {
+    		var widgetBackgroundColour = backgroundColour
+    		$(this).parent().parent().parent().parent().parent().css("background-color", widgetBackgroundColour);
+    	});
+
+    	// Set widget radius
+    	$(document).on( "click", "#btn-set-radius-2", function(e) {
+    		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
+    		$(this).addClass("btn-neumorphic-pressed");
+    		window.widget_radius = "2px"
+    		document.documentElement.style.setProperty('--theme-br', "2px");
+    	});
+    	$(document).on( "click", "#btn-set-radius-5", function(e) {
+    		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
+    		$(this).addClass("btn-neumorphic-pressed");
+    		window.widget_radius = "5px"
+    		document.documentElement.style.setProperty('--theme-br', "5px");
+    	});
+    	$(document).on( "click", "#btn-set-radius-10", function(e) {
+    		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
+    		$(this).addClass("btn-neumorphic-pressed");
+    		window.widget_radius = "10px"
+    		document.documentElement.style.setProperty('--theme-br', "10px");
+    	});
+    	$(document).on( "click", "#btn-set-radius-15", function(e) {
+    		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
+    		$(this).addClass("btn-neumorphic-pressed");
+    		window.widget_radius = "15px"
+    		document.documentElement.style.setProperty('--theme-br', "15px");
+    	});
+    	$(document).on( "click", "#btn-set-radius-22", function(e) {
+    		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
+    		$(this).addClass("btn-neumorphic-pressed");
+    		window.widget_radius = "22px"
+    		document.documentElement.style.setProperty('--theme-br', "22px");
+    	});
+
+    	// Add / Edit button
+    	var edit_save_banner = $("#btn-edit-save")
+		var edit_save_button = $("#btn-edit-save")
+		edit_save_button.on("click", () => {
+		edit_save_banner.toggleClass("alt");
+		$(".controls").toggle();
+		$(".gridster .gs-w").toggleClass("jiggle");
+		$(".gridster li header").toggleClass("centre");
+		$(".remove").toggle();
+		$(".btn-colour-picker").toggle();			
+		$(".circle-ripple").toggleClass("circle-ripple-play");
+		$(".buymeacoffee").toggle();
+		})
+		function btn_edit_save_func_1() {
+			$(".gs-resize-handle, .gs-w.dragging .gs-resize-handle").css("display", "block"); 
+		    $(this).one("click", btn_edit_save_func_2);
+		}
+		function btn_edit_save_func_2() {
+		    if($('.change_bg_popup').css('display') == 'block'){
+		    	$(".btn-background-dialogue").click();
+			}
+			$(".gs-resize-handle, .gs-w.dragging .gs-resize-handle").css("display", "none");
+		    funcSave();
+		    $(".notification-saved").toggle();
+		    setTimeout(function () {
+		    			$(".notification-saved").removeClass("notification-visible");
+						$(".notification-saved").addClass("notification-hidden");        
+					}, 2000);
+		    setTimeout(function () {      
+						$(".notification-saved").toggle();
+		    			$(".notification-saved").addClass("notification-visible");        
+					}, 2000);
+		    
+		    $(this).one("click", btn_edit_save_func_1);
+		}
+		$("#btn-edit-save").one("click", btn_edit_save_func_1);
+
+		// Escape pressed
+		$(document).keyup(function(e) {
+		     if (e.key === "Escape") {
+				if($('.btn-add-new-widget').is(':visible')) {
+						location.reload();
+					} else {
+						//
+					}		
+		    }
+		});
+
+		// Open add-new-widget-dialogue 
+		$(document).on( "click", ".btn-add-new-widget", function(e) {
+			$(".add-new-widget-dialogue").toggle();
+		});
+
+		// Close add-new-widget-dialogue 
+		$(document).on( "click", ".btn-add-new-widget-dialogue-close", function(e) {
+			$(".btn-add-new-widget").click();
+		});
+
+		// Open add-bookmark-dialogue 
+		$(document).on( "click", ".btn-add-bookmark", function(e) {
+			$('#link-name').val('');
+			$('#link-url').val('');
+			$(".add-bookmark-dialogue").css("display","block");
+			$("#link-name").focus();
+		});			
+
+		// Close add-bookmark-dialogue 
+		$(document).on( "click", ".btn-add-bookmark-close", function(e) {
+			$(".add-bookmark-dialogue").toggle();
+		});
+
+		//Open background-dialogue
+		function open_background_dialogue_func_1() {			    
+		    $(".background-dialogue").css("display","block");
+		    $(this).one("click", open_background_dialogue_func_2);
+		}
+		function open_background_dialogue_func_2() {
+		    $(".background-dialogue").css("display","none");
+		    $(this).one("click", open_background_dialogue_func_1);
+		}
+		$(".btn-background-dialogue").one("click", open_background_dialogue_func_1);
+
+		// Close background-dialogue 
+		$(document).on( "click", ".btn-background-dialogue-close", function(e) {
+			$(".btn-background-dialogue").click();
+		});
+
+		// Close background-dialogue when clicked outside
+		$(document).mouseup(function(e){
+		    var container = $(".background-dialogue");
+		    if (!container.is(e.target) && container.has(e.target).length === 0) {
+		    	if ($(".background-dialogue").is(":visible")){
+		    		$(".btn-background-dialogue").click();
+		    	}
+		    }
+		});
+
+		// Enable/Disable widget drop shadow
+		$('#checkbox-shadow').click(function() {
+              if($("#checkbox-shadow").prop("checked") == true) {
+            	lightenDarken(backgroundColour);
+            	window.styleIs3D = true
+              }
+              else if($("#checkbox-shadow").prop("checked") == false) {
+                $('.gs-w').attr('style', 'box-shadow: none;');
+                $('.btn-edit-save').attr('style', 'box-shadow: none;');
+	    		$('.btn-add-new-widget').attr('style', 'box-shadow: none;');
+	    		$('.btn-background-dialogue').attr('style', 'box-shadow: none;');
+	    		$('.btn-default-layout').attr('style', 'box-shadow: none;');
+	    		$('.btn-export-save').attr('style', 'box-shadow: none;');
+	    		$('.btn-import-save').attr('style', 'box-shadow: none;');
+	    		window.styleIs3D = false
+              }
+        });
+
+        // Enable/Disable widget gradient
+		$('#checkbox-gradient').click(function() {
+              if($("#checkbox-gradient").prop("checked") == true) {
+              	$('.flat').removeClass("flat").addClass("convex");
+            	window.styleHasGradient = true
+              }
+              else if($("#checkbox-gradient").prop("checked") == false) {
+                $('.convex').removeClass("convex").addClass("flat");
+	    		window.styleHasGradient = false
+              }
+        });
+
+
+		// Export Button
+		$(document).on( "click", ".btn-export-save", function(e) {
+				value = JSON.stringify(localStorage) //+';Object.keys(data).forEach(function (k){localStorage.setItem(k, data[k]);});'		 
+				var $temp = $("<input>");
+				$("body").append($temp);
+				$temp.val(value).select();
+				document.execCommand("copy");
+				$temp.remove();
+	    });
+
+		// Open export-save-dialogue 
+		$(document).on( "click", ".btn-export-save", function(e) {
+			$(".export-save-dialogue").css("display","block");
+		});
+
+		// Close export-save-dialogue 
+		$(document).on( "click", ".btn-export-save-dialogue-close", function(e) {
+			$(".export-save-dialogue").css("display","none");
+		});
+
+		// Close export-save-dialogue when clicked outside
+		$(document).mouseup(function(e){
+		    var container = $(".export-save-dialogue");
+		    if (!container.is(e.target) && container.has(e.target).length === 0) {
+		    	if ($(".export-save-dialogue").is(":visible")){
+		    		$(".export-save-dialogue").css("display","none");
+		    	}
+		    }
+		});
+
+		// Import Button 
+		var banner = $(".btn-import-save")
+		var button = $(".btn-import-save")
+		button.on("click", () => {
+		banner.toggleClass("alt");			
+		})
+		var handler = function (ev) { 
+				// function to check ctrl+v detection 
+				ev = ev || window.event;
+				var key = ev.which || ev.keyCode;				
+				var ctrl = ev.ctrlKey ? ev.ctrlKey : ((key === 17) 
+					? true : false); 
+				if (key == 86 && ctrl) {
+					$('.import-icons').html('');
+					$('.import-message').html('<div class="paste-loader-icon"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>');					
+					var newElement = $('<textarea id="pasteArea" style="width:50px;height:50px;opacity:0;"></textarea>');
+					$('body').append(newElement);
+					$('#pasteArea').focus();
+					localStorage.clear();
+					setTimeout(
+						function() {
+							var pasteSave = $('#pasteArea').val();								
+							var data = JSON.parse(pasteSave);
+							$(document).ready(function(){
+							 	$.each(data, function(index,value){
+							  	localStorage.setItem(index, value);
+							 	});
+							});
+							location.reload();							
+						}, 1000);
+					
+					setTimeout(function() { 
+						        $('.import-icons').html('<i class="fas fa-exclamation" style="color:red;"></i>');
+						        $('.import-message').html('<span>Oops, Something Went Wrong :\'(</span><br><span style="font-size: 14px;">make sure everything copied correctly and try agian</span>');
+						        $('#pasteArea').remove();
+						    }, 5000);
+				}
+			}
+		function import_save_func_1() {
+			window.document.addEventListener("keydown", handler);
+		    $(this).one("click", import_save_func_2);
+		}
+		function import_save_func_2() {
+			window.document.removeEventListener("keydown", handler);
+		    $(this).one("click", import_save_func_1);
+		}
+		$(".btn-import-save").one("click", import_save_func_1);
+
+		// Open import-save-dialogue 
+		$(document).on( "click", ".btn-import-save", function(e) {
+			$(".import-save-dialogue").css("display","block");
+		});
+
+		// Close import-save-dialogue 
+		$(document).on( "click", ".btn-import-save-dialogue-close", function(e) {
+			$(".btn-import-save").click();
+		    $(".import-save-dialogue").css("display","none");
+		});
+
+		// Close import-save-dialogue when clicked outside
+		$(document).mouseup(function(e){
+		    var container = $(".import-save-dialogue");
+		    if (!container.is(e.target) && container.has(e.target).length === 0) {
+		    	if ($(".import-save-dialogue").is(":visible")){		    		
+		    		$(".btn-import-save").click();
+		    		$(".import-save-dialogue").css("display","none");
+		    	}
+		    }
+		});
+
+		// Focus colour input
+		$(document).on( "click", "#btn-custom-colour", function(e) {
+			$("#colour-input-box").focus();
+		});
+
+		// Focus photo input
+		$(document).on( "click", "#btn-custom-photo", function(e) {
+			$("#photo-input-box").focus();
+		});			
+
+        // Remove widget
+      	$('body').on( "click", ".gridster ul > li .remove", function() {
+			var id = $(this).siblings('textarea').attr("id");
+			if (id === undefined) {
+				gridster.remove_widget($(this).closest('li'));
+			} else {
+				if (id.match("noteNew")) {
+					localStorage.removeItem(id)
+					gridster.remove_widget($(this).closest('li'));
+				}
+				if (id.match("^note-")) {
+					localStorage.removeItem(id)
+					gridster.remove_widget($(this).closest('li'));
+				}
+			}
+		});
+		
+		// Widget basics		
+		var widget_basics_1 = '<div class="widget-colour" style="background: rgb(33, 36, 44);">\
+		<div class="widget-bg-style '
+		var widget_basics_2 = '"><header class="hidden centre"></header>\
+								<div class="btn-colour-picker visible">\
+									<div class="colour-picker">\
+										<div class="widget-colour-picker">\
+											<button class="btn-colour-grey3"></button>\
+											<button class="btn-colour-grey4"></button>\
+											<button class="btn-colour-grey2"></button>\
+											<button class="btn-colour-grey"></button>\
+											<button class="btn-colour-white"></button>\
+											<button class="btn-colour-purple2"></button>\
+											<button class="btn-colour-purple"></button>\
+											<button class="btn-colour-blue2"></button>\
+											<button class="btn-colour-blue"></button>\
+											<button class="btn-colour-teal"></button>\
+											<button class="btn-colour-cyan"></button>\
+											<button class="btn-colour-green"></button>\
+											<button class="btn-colour-green2"></button>\
+											<button class="btn-colour-green3"></button>\
+											<button class="btn-colour-yellow"></button>\
+											<button class="btn-colour-white2"></button>\
+											<button class="btn-colour-orange"></button>\
+											<button class="btn-colour-pink"></button>\
+											<button class="btn-colour-red"></button>\
+											<button class="btn-colour-bg"></button>\
+										</div>\
+									</div>\
+								</div><button class="remove visible"></button><div class="visible"><span class="gs-resize-handle gs-resize-handle-both"></i></span></div>'
+		// Add new bookmark widget
+		$(document).on( "click", ".btn-add-bookmark-submit", function(e) {
+			var linkname = $("#link-name").val();
+			var linkurl = $("#link-url").val();
+			if (styleHasGradient === true) {
+				var styleHasGradientValue = "convex";
+			} else if (styleHasGradient === false) {
+				var styleHasGradientValue = "flat";
+			}
+			if (styleIs3D === false) {
+				var styleIs3DValue = 'style="box-shadow: none;"'
+			}
+		    e.preventDefault(); 
+		    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=1 data-min-sizey=1 data-max-sizex=5 data-max-sizey=5 '+styleIs3DValue+'>'+widget_basics_1+styleHasGradientValue+widget_basics_2+'<div class="widget-link"><a href="'+linkurl+'">'+linkname+'</a></div></div></li>', 3, 1]);
+		    $(".add-bookmark-dialogue").css("display","none");
+		    if (styleIs3D === true) {
+				lightenDarken(backgroundColour);
+			}
+		});
+		
+
+		// Add new blank widget
+		$(document).on( "click", ".btn-add-blank", function(e) {
+			if (styleHasGradient === true) {
+				var styleHasGradientValue = "convex";
+			} else if (styleHasGradient === false) {
+				var styleHasGradientValue = "flat";
+			}
+			if (styleIs3D === false) {
+				var styleIs3DValue = 'style="box-shadow: none;"'
+			}
+		    e.preventDefault(); 
+		    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=2 data-min-sizey=2 data-max-sizex=4 data-max-sizey=4 '+styleIs3DValue+'>'+widget_basics_1+styleHasGradientValue+widget_basics_2+'</div></div></li>', 2, 2]);
+		    if (styleIs3D === true) {
+				lightenDarken(backgroundColour);
+			}
+		});
+
+		// Add new search widget
+		$(document).on( "click", ".btn-add-search", function(e) {
+			if (styleHasGradient === true) {
+				var styleHasGradientValue = "convex";
+			} else if (styleHasGradient === false) {
+				var styleHasGradientValue = "flat";
+			}
+			if (styleIs3D === false) {
+				var styleIs3DValue = 'style="box-shadow: none;"'
+			}
+		    e.preventDefault(); 
+		    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=4 data-min-sizey=1 data-max-sizex=10 data-max-sizey=1 '+styleIs3DValue+'>'+widget_basics_1+styleHasGradientValue+widget_basics_2+'<div class="search-bar">\
+		    											<div style="width: 100%;height:100%;"><form onSubmit="return false;"><input class="duckduckgo-input" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-duckduckgo btn-neumorphic" type="button"><i class="fas fa-search"></i></button></form></div>\
+		    										</div></div></li>', 8, 1]);
+		    if (styleIs3D === true) {
+				lightenDarken(backgroundColour);
+			}
+		});
+
+		// Add new notepad widget
+		$(document).on( "click", ".btn-add-notepad", function(e) {
+			if (styleHasGradient === true) {
+				var styleHasGradientValue = "convex";
+			} else if (styleHasGradient === false) {
+				var styleHasGradientValue = "flat";
+			}
+			if (styleIs3D === false) {
+				var styleIs3DValue = 'style="box-shadow: none;"'
+			}
+		    e.preventDefault(); 
+		    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=2 data-min-sizey=2 data-max-sizex=12 data-max-sizey=12 '+styleIs3DValue+'>'+widget_basics_1+styleHasGradientValue+widget_basics_2+'<textarea id="#noteNew" placeholder="Notes"></textarea></div></div></li>', 2, 2]);
+		    if (styleIs3D === true) {
+				lightenDarken(backgroundColour);
+			}
+		});
+
+		// Add new photo widget
+		$(document).on( "click", ".btn-add-photo", function(e) {
+			if (styleHasGradient === true) {
+				var styleHasGradientValue = "convex";
+			} else if (styleHasGradient === false) {
+				var styleHasGradientValue = "flat";
+			}
+			if (styleIs3D === false) {
+				var styleIs3DValue = 'style="box-shadow: none;"'
+			}
+		    e.preventDefault(); 
+		    gridster.add_widget.apply(gridster, ['<li class="jiggle" data-min-sizex=2 data-min-sizey=2 data-max-sizex=4 data-max-sizey=4 '+styleIs3DValue+'>'+widget_basics_1+styleHasGradientValue+widget_basics_2+'</div></div></li>', 2, 2]);
+		    if (styleIs3D === true) {
+				lightenDarken(backgroundColour);
+			}
+		});
+
+        // Open restore default layout dialogue
+        $('.btn-default-layout').on('click', function () {
+            $(".reset-confirm-dialogue").css("display", "block");
+        });
+        // Close restore default layout dialogue
+        $('.btn-reset-confirm-dialogue-close').on('click', function () {
+        	$(".reset-confirm-dialogue").css("display", "none");
+        });
+        // Close restore default layout dialogue when clicked outside
+		$(document).mouseup(function(e){
+		    var container = $(".reset-confirm-dialogue");
+		    if (!container.is(e.target) && container.has(e.target).length === 0) {
+		    	if ($(".reset-confirm-dialogue").is(":visible")){		    		
+		    		$(".reset-confirm-dialogue").css("display", "none");
+		    	}
+		    }
+		});
+        $('.btn-reset-confirm-yes').on('click', function () {
+        	localStorage.clear();
+            location.reload();
+        });
+        $('.btn-reset-confirm-no').on('click', function () {
+        	$(".reset-confirm-dialogue").css("display", "none");
+        });
+
+        // Set selected radius btn and root variable
+		function restore_radius() {
+			var restoreRadius = (localStorage.getItem('saveRadius'));
+    		if(restoreRadius === '2px') {
+   				$("#btn-set-radius-2").addClass("btn-neumorphic-pressed");
+			} else if(restoreRadius === '5px') {
+				$("#btn-set-radius-5").addClass("btn-neumorphic-pressed");
+			} else if(restoreRadius === '10px') {
+				$("#btn-set-radius-10").addClass("btn-neumorphic-pressed");
+    		} else if(restoreRadius === '15px') {
+				$("#btn-set-radius-15").addClass("btn-neumorphic-pressed");
+			} else if(restoreRadius === '22px') {
+				$("#btn-set-radius-22").addClass("btn-neumorphic-pressed");
+			} else {
+				$("#btn-set-radius-22").addClass("btn-neumorphic-pressed");
+			}
+			document.documentElement.style.setProperty('--theme-br', restoreRadius);
+			window.widget_radius = restoreRadius
+    	};
+
+    	// Restore background
+    	function restore_background() {
+			var restoreBackground = (localStorage.getItem('saveBackground'));
+    		if("savePhotoBackground" in localStorage){  			
+				var restorePhotoBackground = (localStorage.getItem('savePhotoBackground'));
+				$('body').css("background", "url("+restorePhotoBackground+") top center no-repeat");
+				$('body').css("background-size", "cover");
+				lightenDarkenOnLoad("#1c1c1c");
+				window.photoBackground = restorePhotoBackground
+				window.isPhotoBackground = true
+			} else {
+				$('body').css("background", restoreBackground);
+				if (restoreBackground === null) {
+					var restoreBackground = "#21242c"
+				}
+				lightenDarkenOnLoad(restoreBackground);
+				window.isPhotoBackground = false
+				backgroundColour = restoreBackground
+			}
+    	};
+
+    	// Restore widget layout
+    	function restore_layout() {
+    		var restoreLayout = JSON.parse(localStorage.getItem('saveLayout'));
+        	$.each(restoreLayout, function (index, value) {
+				gridster.add_widget('<li ' + 'data-min-sizex="'+value.min_size_x+'"' + 'data-min-sizey="'+value.min_size_y+'"' + 'data-max-sizex="'+value.max_size_x+'"' + 'data-max-sizey="'+value.max_size_y+'"' + 'class="'+value.colour+'"' + '/>' + value.htmlContent, this.size_x, this.size_y, this.col, this.row); 			
+        	});
+    	};
+
+    	// Restore Notes
+		function restore_notes() {
+	        for (var key in localStorage){
+	        	if (key.match("^note-")){
+	        		var note = (localStorage.getItem(key));
+	        		$("#"+key).val(note);
+	        	}			   
+			}
+		};
+
+		// Restore style gradient
+		function restore_gradient() {
+			var restoreHasGradient = JSON.parse(localStorage.getItem('saveHasGradient'));
+				if (restoreHasGradient === false){
+		        	$('#checkbox-gradient').prop('checked', false);
+		        	$('.convex').removeClass("convex").addClass("flat");
+		        	window.styleHasGradient = false
+	    		//$.localStorage.setItem('saveHasGradient', "false");
+		        } else if (restoreHasGradient === true){
+		        	$('#checkbox-gradient').prop('checked', true);
+		        	window.styleHasGradient = true
+		        }
+		}
+
+		// Restore style is 3d
+		function restore_is_3d() {
+			var restoreIs3D = JSON.parse(localStorage.getItem('saveIs3D'));
+				if (restoreIs3D === false){
+		        	$('#checkbox-shadow').prop('checked', false);
+		        	window.styleIs3D = false
+		        } else if (restoreIs3D === true){
+		        	$('#checkbox-shadow').prop('checked', true);
+		        	window.styleIs3D = true
+		        }
+		}
+
+        // Restore layout on load
+        $(document).ready(function(){        	
+        	window.widget_radius = "22px"
+        	window.backgroundColour = "#21242c"
+			if("saveLayout" in localStorage){
+				gridster.remove_all_widgets();
+				restore_layout();	
+				restore_radius();
+	        	restore_background();
+	        	restore_notes();
+	        	restore_gradient();
+	        	restore_is_3d();
+	        	setTimeout(function () {      
+					$(".loading-page").addClass("loading-page-hidden");         
+				}, 800);
+			} else {
+				$("#btn-set-radius-22").addClass("btn-neumorphic-pressed");
+				$('#checkbox-shadow').prop('checked', true);
+				window.styleIs3D = true
+				$('#checkbox-gradient').prop('checked', true);
+				window.styleHasGradient = true
+				window.backgroundColour = "#21242c"
+				setTimeout(function () {      
+			         $(".loading-page").addClass("loading-page-hidden");         
+				}, 800);				
+			};
+			$(".duckduckgo-input").focus();
+		});
+	</script>
+
+</body>
+</html>
