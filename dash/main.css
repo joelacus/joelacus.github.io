@@ -107,6 +107,8 @@ textarea:focus {
 }
 .convex {
     background: linear-gradient(-45deg,var(--gd1),var(--gd2));
+    width: calc(100% + 1px);
+    height: calc(100% + 2px);
 }
 .flat {
     background: none;
