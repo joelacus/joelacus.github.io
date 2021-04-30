@@ -46,7 +46,7 @@
 	</style>
 </head>
 <body id="right-click-menu">
-	<div><span style="color:#fff;position:fixed;top:5px;">This site is a work in progress!</span></div>
+	<div class="notice hidden"><span style="color:#fff;position:fixed;top:5px;">This site is a work in progress!</span></div>
 	<div class="buymeacoffee hidden"><script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="customdashboard" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ff0000" data-coffee-color="#000000" ></script></div>
 
 	<div class="gridster">
@@ -418,7 +418,8 @@
 			$(".slider-photo-pos-y").toggle();
 			$(".gs-resize-handle, .gs-w.dragging .gs-resize-handle").toggle();
 			$(".circle-ripple").toggleClass("circle-ripple-play");
-			$(".buymeacoffee").toggle();			
+			$(".buymeacoffee").toggle();
+			$(".notice").toggle();
 		})
 		function btn_edit_save_func_1() {
 			$(".gs-resize-handle, .gs-w.dragging .gs-resize-handle").css("display", "block"); 	
