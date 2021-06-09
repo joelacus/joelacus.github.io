@@ -7,6 +7,9 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
+    position: absolute;
+    top: -8px;
+    left: -8px;
   }
 h1,h2,h3,p {
     margin: 10px;
@@ -24,15 +27,15 @@ a, button {
 input {
     outline: none;
     border-radius: var(--theme-br);
-    border: solid 1px var(--theme-grey);
+    border: solid 1px var(--theme-grey3);
     height: 35px;
     color: #fff;
     font-size: 18px;
     padding-left: 10px;
     padding-right: 5px;
-    background: var(--theme-grey);
-    box-shadow: inset 3px 3px 5px 0 #23282c,
-    inset -3px -3px 5px 0 #343c41;
+    background: var(--theme-grey2);
+    /*box-shadow: inset 3px 3px 5px 0 #23282c,
+    inset -3px -3px 5px 0 #343c41;*/
 }
 input:focus {
     /*border: solid 1px #151719;*/
@@ -82,7 +85,7 @@ textarea::placeholder {
     box-shadow:  5px 5px 10px #141414, /*-5px -5px 10px #242424,*/
                 inset 3px 3px 15px 0 #23282c, inset -3px -3px 15px 0 #343c41;
 }
-.btn-neumorphic {
+/*.btn-neumorphic {
     width: 56.5px;
     height: 56.5px;
     background: #282c30;
@@ -101,6 +104,22 @@ textarea::placeholder {
     border: solid 1px #525659;
     box-shadow: inset 8px 8px 15px #222529,
             inset -8px -8px 15px #2e3337;
+}*/
+.btn-flat {
+    width: 56.5px;
+    height: 56.5px;
+    outline: none;
+    background: var(--theme-grey);
+    border: solid 1px var(--theme-grey);
+    border-radius: var(--theme-br);
+}
+.btn-flat:hover {
+    background: var(--theme-grey2);
+    cursor: pointer;
+}
+.btn-flat-pressed {
+    border-radius: var(--theme-br);
+    border: solid 1px var(--theme-grey3);
 }
 .widget-bg-style {
     width:100%;
@@ -194,7 +213,7 @@ textarea::placeholder {
     position: absolute;
     display: inline-block;
     height: 50px;
-    width: 180px;
+    width: 220px;
     overflow: hidden;
     text-decoration: none;
     text-transform: uppercase;
@@ -202,30 +221,15 @@ textarea::placeholder {
     color: #fff;
     font-size: 14px;
     text-align: center;
-    /*background: linear-gradient(-45deg,var(--gd1),var(--gd2));*/
     border-radius: 20px;
-    box-shadow:  5px 5px 13px #141414,
-                 -5px -5px 13px #242424;
+    /*box-shadow:  5px 5px 13px #141414,
+                 -5px -5px 13px #242424;*/
 }
 .btn span {
     position: relative;
 }
 .btn:hover {
     cursor: pointer;
-    /*background: linear-gradient(135deg,var(--gd1),var(--gd2));*/
-    transition: 0.1s;
-}
-.btn:hover span {
-    margin-left: 3px;
-}
-.btn:after {
-    position: absolute;
-    content:"";
-    height: 50px;
-    width: 372px;
-    z-index: -1;
-    transform: translateX(-280px);
-    transition: transform 200ms ease-in;
 }
 .btn-menu {
     box-shadow: none;
@@ -234,10 +238,10 @@ textarea::placeholder {
     text-align: left;
 }
 .btn-menu:hover {
-    background: var(--theme-grey);
+    background: var(--theme-grey2);
 }
 .btn-menu:hover span {
-    top: 17px;
+    /*top: 17px;*/
 }
 .btn-menu-icon {
     margin-left: 12px;
@@ -340,7 +344,7 @@ textarea::placeholder {
 .add-widget-list a {
     position: relative;
     margin: 0 auto;
-    margin-left: 70px;
+    margin-left: 50px;
     margin-bottom: 10px;
 }
 .btn-add-bookmark span, .btn-edit-bookmark span, .btn-add-blank span, .btn-add-search-d span, 
@@ -350,19 +354,17 @@ textarea::placeholder {
 
 /* Add New Bookmark Dialogue */
 .add-bookmark-dialogue, .edit-bookmark-dialogue, .edit-photo-dialogue {
-    top: calc(50% - 215px);
+    top: calc(50% - 170px);
     left: calc(50% - 190px);
     width: 320px;
-    height: 215px;
+    height: 170px;
     padding: 20px;
+    padding-top: 45px;
 }
 .edit-photo-dialogue {
     top: calc(50% - 140px);
     height: 140px;
 }
-/*.add-bookmark-dialogue label, .edit-bookmark-dialogue label, .edit-photo-dialogue label {
-    color: #fff;
-}*/
 .add-bookmark-dialogue input, .edit-bookmark-dialogue input, .edit-photo-dialogue input {
     margin-top: 5px;
     width: 310px;
@@ -393,8 +395,8 @@ textarea::placeholder {
 /* Import/Export Save Dialogue */
 .export-save-dialogue, .import-save-dialogue {
     top: calc(50% - 100px);
-    left: calc(50% - 225px);
-    width: 450px;
+    left: calc(50% - 320px);
+    width: 640px;
     height: 95px;
     padding-top: 50px;
 }
@@ -530,6 +532,25 @@ button.accordion.active:after {
     float: right;
     width: 76px;
     height: 50px;
+}
+.background-blur-text, .background-blur-input, .background-blur-value {
+    display: inline-block;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background-blur-text, .background-blur-value {
+    top: 15px;
+    float: left;
+    margin-left: 12px;
+    color: #fff;
+}
+.background-blur-input {
+    top: 20px;
+    float: left;
+    margin-left: 10px;
+    width: 120px;
 }
 .colour-input {
     width: 220px;
@@ -719,23 +740,7 @@ button.accordion.active:after {
     border: none !important;
     border-radius: var(--theme-br) !important;
     background: #bfbdc1 !important;
-    /*animation-name: pulse; 
-    animation-duration: 1s; 
-    animation-timing-function: ease-out; 
-    animation-direction: alternate; 
-    animation-iteration-count: infinite; 
-    animation-play-state: running; */
 }
-/*@keyframes pulse { 
-    0% { 
-        transform: scale(1); 
-    } 
-    50% { 
-    } 
-    100% { 
-        transform: scale(0.95); 
-    } 
-}*/
 .gridster li {
     font-size: 18px;
     font-weight: bold;
@@ -761,10 +766,6 @@ li {
     cursor: move;
     z-index: 10;
     border-radius: var(--theme-br);
-    /*display: flex;
-    flex-wrap: wrap;
-    align-content: center;*/
-
 }
 .gridster li header:hover {
     border: solid 2px #41e33b;
@@ -780,7 +781,7 @@ li {
     margin: 0 auto;
 
 }
-.gs-resize-handle, .gs-resize-handle { /*.gs-w.dragging,*/
+.gs-resize-handle, .gs-resize-handle {
     background-image:url();
     opacity: 1;
     position: absolute;
@@ -861,9 +862,6 @@ li {
     transform: scale(1.1,1.1);
     transition: transform 50ms ease-in;
 }
-/*.btn-edit-bookmark:before::active {
-    margin-left: -7px;
-}*/
 
 /* Widget Bookmark */
 .widget-link a:link, a:visited {
@@ -877,21 +875,19 @@ li {
     text-decoration: none;
 }
 .widget-link {
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    margin-top: -1px;
-    margin-left: -1px;
+    width: 100%;
+    height: 100%;
     border-radius: var(--theme-br);    
 }
 .widget-link:hover  {
     background: linear-gradient(-45deg,var(--gd2),var(--gd1));
     border-radius: var(--theme-br);
-    height: calc(100% - 0.5px);
-    width: calc(100% - 0.5px);
+    height: 100%;
+    width: 100%;
 }
 .widget-link:hover a {
-    margin-top: 1px;
-    margin-left: 1px;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
 /* Widget Search */
@@ -1061,6 +1057,7 @@ li {
 /* buymeacoffee button */
 .buymeacoffee {
     position: fixed;
+    margin-top: 10px;
     margin-left: calc(100% - 250px);
     z-index: 999;
 }
@@ -1300,4 +1297,12 @@ textarea {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+}
+.background-style {
+    position:fixed;
+    width:100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    -webkit-filter: blur(0px);
 }
