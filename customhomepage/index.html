@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 	<html lang="en-GB">
-	<title>Dash</title>
+	<title>Home</title>
 	<meta name="description" content="A customisable homepage" />
 	<meta name="keywords" content="homepage dash dashboard steam customise responsive" />
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
@@ -10,7 +10,7 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
 	<link href="css/gridster.css" rel="stylesheet" type="text/css" />	
-	<link href="css/context.standalone.css" rel="stylesheet" >
+	<!--<link href="css/context.standalone.css" rel="stylesheet" >-->
 	<link href="css/spectrum.css" rel="stylesheet" >
 
 <!-- = Scripts = -->
@@ -19,9 +19,9 @@
 	<script src="https://dsmorse.github.io/gridster.js/dist/jquery.gridster.min.js"></script>	
 	<script src="js/html5storage.min.js"></script>
 	<script src="js/colours-main.js"></script>	
-	<script src="js/initialize.js"></script>
 	<script src="js/spectrum.js"></script>
-	<script src="js/context.js"></script>
+	<!--<script src="js/initialize.js"></script>
+	<script src="js/context.js"></script>-->
 	<script src="js/main.js"></script>
 	
 <head>
@@ -42,10 +42,13 @@
 		--gd2: rgba(255,255,255,0.3);
 		--theme-br: 10px;
 		--theme-grey: #282c30;
+		--theme-grey2: #24272b;
+		--theme-grey3: #181a1c;
 	}
 	</style>
 </head>
 <body id="right-click-menu">
+	<div class="background-style" style=""></div>
 	<div class="notice hidden"><span style="color:#fff;position:fixed;top:5px;">This site is a work in progress!</span></div>
 	<div class="buymeacoffee hidden"><script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="customdashboard" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ff0000" data-coffee-color="#000000" ></script></div>
 
@@ -113,44 +116,44 @@
 
 		<div class="controls hidden">  		    
 		    <div class="tooltip"><span class="tooltiptext" style="margin-left:55px;">Add New Widgets</span><a class="btn btn-add-new-widget"><span><i class="fas fa-plus"></i></span></a></div>
-		    <div class="tooltip"><span class="tooltiptext" style="margin-left:145px;">Appearance</span><a class="btn btn-background-dialogue"><span><i class="far fa-image"></i></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:145px;">Appearance</span><a class="btn btn-background-dialogue"><span><i class="fas fa-paint-brush"></i></i></span></a></div>
 		    <div class="tooltip"><span class="tooltiptext" style="margin-left:235px;">Reset To<br>Default</span><a class="btn btn-default-layout"><span><i class="fas fa-undo-alt"></i></span></a></div>
-		    <div class="tooltip"><span class="tooltiptext" style="margin-left:325px;">Copy Save<br>To Clipboard</span><a class="btn btn-export-save"><span><i class="fas fa-file-export"></i></span></a></div>
-		    <div class="tooltip"><span class="tooltiptext" style="margin-left:415px;">Import Save From Clipboard</span><a class="btn btn-import-save"><span><i class="fas fa-file-upload"></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:325px;">Export Custom Homepage<br>To Clipboard</span><a class="btn btn-export-save"><span><i class="fas fa-file-export"></i></span></a></div>
+		    <div class="tooltip"><span class="tooltiptext" style="margin-left:415px;">Import Custom Homepage From Clipboard</span><a class="btn btn-import-save"><span><i class="fas fa-file-upload"></i></span></a></div>
 		</div>		
 	</div>
 
 	<div class="dialogue neumorphic add-new-widget-dialogue">
 		<button class="btn-dialogue-close btn-add-new-widget-dialogue-close"><i class="fas fa-times"></i></button>
 		<div class="add-widget-list">
-			<a href="#" class="btn btn-menu btn-neumorphic btn-add-bookmark"><span><i class="fas fa-bookmark btn-menu-icon"></i> BOOKMARK</span></a>
-			<a href="#" class="btn btn-menu btn-neumorphic btn-add-notepad"><span><i class="fas fa-sticky-note btn-menu-icon"></i> NOTEPAD</span></a>
-			<a href="#" class="btn btn-menu btn-neumorphic btn-add-search-d"><span><i class="fas fa-search btn-menu-icon"></i> DUCKDUCKGO</span></a>
-			<a href="#" class="btn btn-menu btn-neumorphic btn-add-search-g"><span><i class="fas fa-search btn-menu-icon"></i> GOOGLE</span></a>
-			<a href="#" class="btn btn-menu btn-neumorphic btn-add-photo"><span><i class="fas fa-images btn-menu-icon"></i> PHOTO</span></a>
-			<a href="#" class="btn btn-menu btn-neumorphic btn-add-blank"><span><i class="fas fa-square btn-menu-icon"></i> BLANK</span></a>
+			<a href="#" class="btn btn-menu btn-add-bookmark"><span><i class="fas fa-bookmark btn-menu-icon"></i> BOOKMARK</span></a>
+			<a href="#" class="btn btn-menu btn-add-notepad"><span><i class="fas fa-sticky-note btn-menu-icon"></i> NOTEPAD</span></a>
+			<a href="#" class="btn btn-menu btn-add-search-d"><span><i class="fas fa-search btn-menu-icon"></i> DUCKDUCKGO</span></a>
+			<a href="#" class="btn btn-menu btn-add-search-g"><span><i class="fas fa-search btn-menu-icon"></i> GOOGLE</span></a>
+			<a href="#" class="btn btn-menu btn-add-photo"><span><i class="fas fa-images btn-menu-icon"></i> PHOTO</span></a>
+			<a href="#" class="btn btn-menu btn-add-blank"><span><i class="fas fa-square btn-menu-icon"></i> BLANK</span></a>
 		</div>
 	</div>
 
 	<div class="dialogue neumorphic add-bookmark-dialogue">
 		<button class="btn-dialogue-close btn-add-bookmark-close"><i class="fas fa-times"></i></button>
 		<form>
-			<label for="link-name">Name:</label><br>
+			<!--<label for="link-name">Name:</label><br>-->
 			<input type="text" id="link-name" name="link-name" placeholder="website name"><br><br>
-			<label for="link-url">Link:</label><br>
+			<!--<label for="link-url">Link:</label><br>-->
 			<input type="text" id="link-url" name="link-url" placeholder="website link"><br>
-			<button type="button" class="btn-neumorphic btn-add-bookmark-submit"><i class="fas fa-check"></i></button>
+			<button type="button" class="btn-flat btn-add-bookmark-submit"><i class="fas fa-check"></i></button>
 		</form>
 	</div>
 
 	<div class="dialogue neumorphic edit-bookmark-dialogue">
 		<button class="btn-dialogue-close btn-edit-bookmark-close"><i class="fas fa-times"></i></button>
 		<form>
-			<label for="link-name">Name:</label><br>
+			<!--<label for="link-name">Name:</label><br>-->
 			<input type="text" id="edit-link-name" name="link-name" placeholder="website/button name"><br><br>
-			<label for="link-url">Link:</label><br>
+			<!--<label for="link-url">Link:</label><br>-->
 			<input type="text" id="edit-link-url" name="link-url" placeholder="website link"><br>
-			<button type="button" class="btn-neumorphic btn-edit-bookmark-submit"><i class="fas fa-check"></i></button>
+			<button type="button" class="btn-flat btn-edit-bookmark-submit"><i class="fas fa-check"></i></button>
 		</form>
 	</div>
 
@@ -158,8 +161,8 @@
 		<button class="btn-dialogue-close btn-edit-photo-close"><i class="fas fa-times"></i></button>
 		<form>
 			<label for="photo-url"></label><br>
-			<input type="text" id="edit-photo-url" name="photo-url" placeholder="IMAGE LINK"><br>
-			<button type="button" class="btn-neumorphic btn-edit-photo-submit"><i class="fas fa-check"></i></button>
+			<input type="text" id="edit-photo-url" name="photo-url" placeholder="image link"><br>
+			<button type="button" class="btn-flat btn-edit-photo-submit"><i class="fas fa-check"></i></button>
 		</form>
 	</div>
 
@@ -196,26 +199,29 @@
 				<div class="accordion-item">
 					<div class="colour-input-box-2"><input id="colour-input-box" class="colour-input" name="input" type="text" placeholder="" onfocus="this.value=''"/>
 					<div class="btn-colour-palette"><input type="text" class="full" /></div></div>
-					<div class="colour-input-box-3"><button class="btn-neumorphic set-bg-colour"><i class="fas fa-check"></i></button></div>
+					<div class="colour-input-box-3"><button class="btn-flat set-bg-colour"><i class="fas fa-check"></i></button></div>
 				</div>
 			</div> 
 		</div>
 		<button class="accordion" id="btn-custom-photo">Background Photo</button>
 		<div class="panel">
-		  	<div class="accordion-item" style="margin-left: -12px;">
+		  	<div class="accordion-item" style="margin-left: -12px;height: 100px;">
 		  		<div class="custom-photo-happy">Yay! Thank You! :D</div>
-				<div class="colour-input-box-2"><input id="photo-input-box" class="photo-input" name="photo" type="text" placeholder="IMAGE LINK" onfocus="this.value=''"/></div>
-				<div class="colour-input-box-3"><button class="btn-neumorphic set-bg-photo"><i class="fas fa-check"></i></button></div>
+				<div class="colour-input-box-2"><input id="photo-input-box" class="photo-input" name="photo" type="text" placeholder="image link" onfocus="this.value=''"/></div>
+				<div class="colour-input-box-3"><button class="btn-flat set-bg-photo"><i class="fas fa-check"></i></button></div>
+				<div class="background-blur-text"><a>Blur</a></div>
+				<div class="background-blur-input"><input type="range" min="0" max="50" value="0" class="slider" id="background-blur-slider"></div>
+				<div class="background-blur-value"><span id="background-blur-value"></span></div>
 			</div>
 		</div>
 		<button class="accordion" id="btn-radius-amount">UI Corner Radius</button>
 		<div class="panel">
 		  	<div class="accordion-item">
-				<button class="btn-neumorphic" id="btn-set-radius-2"><div class="radius-amount" style="border-top-left-radius:2px;"></div></button>
-				<button class="btn-neumorphic" id="btn-set-radius-5"><div class="radius-amount" style="border-top-left-radius:5px;"></div></button>
-				<button class="btn-neumorphic" id="btn-set-radius-10"><div class="radius-amount" style="border-top-left-radius:10px;"></div></button>
-				<button class="btn-neumorphic" id="btn-set-radius-15"><div class="radius-amount" style="border-top-left-radius:15px;"></div></button>
-				<button class="btn-neumorphic" id="btn-set-radius-22"><div class="radius-amount" style="border-top-left-radius:22px;"></div></button>
+				<button class="btn-flat" id="btn-set-radius-2"><div class="radius-amount" style="border-top-left-radius:2px;"></div></button>
+				<button class="btn-flat" id="btn-set-radius-5"><div class="radius-amount" style="border-top-left-radius:5px;"></div></button>
+				<button class="btn-flat" id="btn-set-radius-10"><div class="radius-amount" style="border-top-left-radius:10px;"></div></button>
+				<button class="btn-flat" id="btn-set-radius-15"><div class="radius-amount" style="border-top-left-radius:15px;"></div></button>
+				<button class="btn-flat" id="btn-set-radius-22"><div class="radius-amount" style="border-top-left-radius:22px;"></div></button>
 			</div>
 		</div>
 		<button class="accordion" id="btn-other">Other Settings</button>
@@ -257,7 +263,7 @@
 		<button class="btn-dialogue-close btn-export-save-dialogue-close"><i class="fas fa-times"></i></button>
 		<div class="export-icons"><i class="far fa-file-code"></i><i class="fas fa-long-arrow-alt-right"></i><i class="far fa-clipboard"></i></div>
 		<div class="export-message">
-			<span>Save Data Has Been Copied To The Clipboard.<br>Please Paste This In A New Text File To Save</span><br><span style="font-size: 14px;">make sure to save after editing first</span>
+			<span>Your Custom Homepage Config Has Been Copied To The Clipboard.<br>Please Paste This In A New Text File To Save</span><br><span style="font-size: 14px;">make sure to save after editing first</span>
 		</div>
 	</div>
 
@@ -265,7 +271,7 @@
 		<button class="btn-dialogue-close btn-import-save-dialogue-close"><i class="fas fa-times"></i></button>
 		<div class="import-icons"><i class="far fa-clipboard"></i><i class="fas fa-long-arrow-alt-right"></i><i class="fas fa-file-upload"></i></div>
 		<div class="import-message">
-			<span>Copy Save Data, Then Press CTRL+V Here</span><br><span style="font-size: 14px;">only works whilst this window is open</span>
+			<span>Copy Your Saved Homepage Config Data, Then Press CTRL+V Here</span><br><span style="font-size: 14px;">only works whilst this window is open</span>
 		</div>
 	</div>
 
@@ -275,8 +281,8 @@
 		<div class="reset-confirm-message">
 			<span>This Will Restore Everything To Default.<br>Are You Sure?</span><br><span style="font-size: 14px;">last chance to backup save data</span>
 		</div>
-		<button class="btn-reset-confirm-yes btn-neumorphic">Yes, Reset</button>
-		<button class="btn-reset-confirm-no btn-neumorphic">No, Go Back</button>
+		<button class="btn-reset-confirm-yes btn-flat">Yes, Reset</button>
+		<button class="btn-reset-confirm-no btn-flat">No, Go Back</button>
 	</div>
 
 
@@ -419,7 +425,7 @@
 			$(".gs-resize-handle, .gs-w.dragging .gs-resize-handle").toggle();
 			$(".circle-ripple").toggleClass("circle-ripple-play");
 			$(".buymeacoffee").toggle();
-			$(".notice").toggle();
+			$(".notice").toggle();			
 		})
 		function btn_edit_save_func_1() {
 			$(".gs-resize-handle, .gs-w.dragging .gs-resize-handle").css("display", "block"); 	
@@ -673,7 +679,7 @@
 			}
 		    e.preventDefault(); 
 		    gridster.add_widget.apply(gridster, ['<li class="'+editJiggle+'" data-min-sizex=4 data-min-sizey=1 data-max-sizex=12 data-max-sizey=1 '+styleIs3DValue+'>'+widget_basics_1+styleHasGradientValue+widget_basics_2+'<div class="search-bar">\
-		    											<div style="width: 100%;height:100%;"><form onSubmit="return false;"><input class="search-input duckduckgo" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-search-d btn-neumorphic" type="button"><i class="fas fa-search"></i></button></form></div>\
+		    											<div style="width: 100%;height:100%;"><form onSubmit="return false;"><input class="search-input duckduckgo" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-search-d btn-flat" type="button"><i class="fas fa-search"></i></button></form></div>\
 		    										</div></div></li>', 8, 1]);
 		    if (styleIs3D === true) {
 				lightenDarken(backgroundColour);
@@ -699,7 +705,7 @@
 			}
 		    e.preventDefault(); 
 		    gridster.add_widget.apply(gridster, ['<li class="'+editJiggle+'" data-min-sizex=4 data-min-sizey=1 data-max-sizex=12 data-max-sizey=1 '+styleIs3DValue+'>'+widget_basics_1+styleHasGradientValue+widget_basics_2+'<div class="search-bar">\
-		    											<div style="width: 100%;height:100%;"><form onSubmit="return false;"><input class="search-input google" type="" name="" placeholder="Search Google"><button class="btn-search-g btn-neumorphic" type="button"><i class="fas fa-search"></i></button></form></div>\
+		    											<div style="width: 100%;height:100%;"><form onSubmit="return false;"><input class="search-input google" type="" name="" placeholder="Search Google"><button class="btn-search-g btn-flat" type="button"><i class="fas fa-search"></i></button></form></div>\
 		    										</div></div></li>', 8, 1]);
 		    if (styleIs3D === true) {
 				lightenDarken(backgroundColour);
@@ -774,6 +780,7 @@
 				restore_layout();	
 				restore_radius();
 	        	restore_background();
+	        	restore_background_blur();
 	        	restore_notes();
 	        	restore_gradient();
 	        	restore_is_3d();
@@ -782,7 +789,9 @@
 					$(".loading-page").addClass("loading-page-hidden");         
 				}, 800);
 			} else {
-				$("#btn-set-radius-10").addClass("btn-neumorphic-pressed");
+				$("#btn-set-radius-10").addClass("btn-flat-pressed");
+				$("#background-blur-value").val("0");
+				document.getElementById("background-blur-value").innerHTML = "0px";
 				$('#checkbox-shadow').prop('checked', true);
 				window.styleIs3D = true
 				$('#checkbox-gradient').prop('checked', true);
@@ -796,9 +805,9 @@
 			};
 			$(".search-input").focus();
 		});
-	</script>	
+	</script>
 
-	<script type="text/javascript">
+	<!--<script type="text/javascript">
 		// Right Click Menu
   		context.attach('#right-click-menu', right_click_menu);
 		$(document).mouseup(function(e){
@@ -809,7 +818,7 @@
 		    	}
 		    }
 		});
-	</script>
+	</script>-->
 
 	<script type="text/javascript">
 		// Colour Palette
