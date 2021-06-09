@@ -18,7 +18,6 @@
         	$.localStorage.setItem('saveBackground', backgroundColour);
         }
         $.localStorage.setItem('saveBackgroundBlur', backgroundBlur);
-        console.log(backgroundBlur);
     }
 
 
@@ -665,4 +664,48 @@
 		var restoreBackgroundBlur = (localStorage.getItem('saveBackgroundBlur'));
 		document.getElementById("background-blur-value").innerHTML = restoreBackgroundBlur+"px";
 		$('.background-style').css({'-webkit-filter':'blur('+restoreBackgroundBlur+'px)'});
+		$('#background-blur-slider').val(restoreBackgroundBlur)
+		window.backgroundBlur = restoreBackgroundBlur
 	};
+
+
+
+	// Open widget-colour-dialogue 
+		$(document).on( "click", ".btn-colour-picker", function(e) {
+			window.activeWidget = $(this).parent().parent()
+			var activeWidgetColour = $(this).parent().parent().css('background-color')
+			if (activeWidgetColour.includes("rgba") == true) {
+				var activeWidgetOpacity = $(this).parent().parent().css('background-color').replace('rgba(','').replace('rgb(','').replace(')','').split(', ').slice(-1)[0] 
+				value = activeWidgetOpacity * 100
+				valueRound = Math.round(value)
+				var output = document.getElementById("widget-colour-opacity-value");
+				output.innerHTML = valueRound+'%';
+				$('#widget-colour-opacity-slider').val(valueRound)
+			}else{
+				var output = document.getElementById("widget-colour-opacity-value");
+				output.innerHTML = '100%';
+				$('#widget-colour-opacity-slider').val(100)
+			}
+			$(".widget-colour-dialogue").toggle();
+		});
+
+
+
+	// Close widget-colour-dialogue 
+		$(document).on( "click", ".btn-widget-colour-dialogue-close", function(e) {
+			$(".widget-colour-dialogue").toggle();
+		});
+
+
+
+	// Widget colour opacity
+    $(document).on('input', '#widget-colour-opacity-slider', function() {
+		var slider = this
+		var output = document.getElementById("widget-colour-opacity-value");
+		output.innerHTML = slider.value+'%';
+		var amount = slider.value / 100
+		var oldColour = activeWidget.css('background-color')
+		var oldRGB = oldColour.replace('rgba(','').replace('rgb(','').replace(')','').split(', ').slice(0, 3);
+		var newColour = 'rgba('+oldRGB+','+amount+')'
+		$(activeWidget).css("background-color", newColour);
+	});
