@@ -10,7 +10,6 @@
         $.localStorage.setItem('saveIs3D', styleIs3D);
         $.localStorage.setItem('saveHasGradient', styleHasGradient);
         $.localStorage.setItem('saveEditJiggle', styleEditJiggle);
-        //console.log(backgroundColour)
         if (isPhotoBackground === true){
         	$.localStorage.setItem('savePhotoBackground', photoBackground);
         	$.localStorage.removeItem('saveBackground');
@@ -18,6 +17,8 @@
         	$.localStorage.removeItem('savePhotoBackground');
         	$.localStorage.setItem('saveBackground', backgroundColour);
         }
+        $.localStorage.setItem('saveBackgroundBlur', backgroundBlur);
+        console.log(backgroundBlur);
     }
 
 
@@ -137,15 +138,15 @@
     	$(document).on( "click", ".set-bg-colour", function(e) {
 			if ($("#colour-input-box").val().length === 0){
 				var colour = colourPreview;
-				$('body').attr('style', 'background: '+colour);
-				$('html').css('background', colour);
+				$('.background-style').attr('style', 'background: '+colour);
+				//$('html').css('background', colour);
 				window.backgroundColour = colourPreview
 				is3DColour();
 				window.isPhotoBackground = false
 			} else {
 				var colour = $("#colour-input-box").val();
-				$('body').attr('style', 'background: '+colour);
-				$('html').css('background', colour);
+				$('.background-style').attr('style', 'background: '+colour);
+				//$('html').css('background', colour);
 				window.backgroundColour = colour
 				is3DColour();
 				window.isPhotoBackground = false
@@ -162,7 +163,7 @@
     			if (count === 0) {
 		            $("#photo-input-box").attr("placeholder", "I need the link first :/");
 		        } else if (count === 1) {
-		            $("#photo-input-box").attr("placeholder", "Please can I have the link?");
+		            $("#photo-input-box").attr("placeholder", "Please can I have it?");
 		        } else if (count === 2) {
 		            $("#photo-input-box").attr("placeholder", "Paste it here, in this box");
 		        } else if (count === 3) {
@@ -190,9 +191,9 @@
 				}    			
 				window.photoBackground = varphoto
 				window.isPhotoBackground = true
-				$('html').attr('style', 'background: none;');
-				$('body').css("background", "url("+photoBackground+") top center no-repeat");
-				$('body').css("background-size", "cover");
+				//$('html').attr('style', 'background: none;');
+				$('.background-style').css("background", "url("+photoBackground+") top center no-repeat");
+				$('.background-style').css("background-size", "cover");
 				var restoreIs3D = JSON.parse(localStorage.getItem('saveIs3D'));
 				if (restoreIs3D === true){
 					lightenDarken("#1c1c1c");
@@ -213,32 +214,32 @@
 
 	// Set widget radius
 	$(document).on( "click", "#btn-set-radius-2", function(e) {
-		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
-		$(this).addClass("btn-neumorphic-pressed");
+		$('[id^=btn-set-radius-]').removeClass("btn-flat-pressed");
+		$(this).addClass("btn-flat-pressed");
 		window.widget_radius = "2px"
 		document.documentElement.style.setProperty('--theme-br', "2px");
 	});
 	$(document).on( "click", "#btn-set-radius-5", function(e) {
-		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
-		$(this).addClass("btn-neumorphic-pressed");
+		$('[id^=btn-set-radius-]').removeClass("btn-flat-pressed");
+		$(this).addClass("btn-flat-pressed");
 		window.widget_radius = "5px"
 		document.documentElement.style.setProperty('--theme-br', "5px");
 	});
 	$(document).on( "click", "#btn-set-radius-10", function(e) {
-		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
-		$(this).addClass("btn-neumorphic-pressed");
+		$('[id^=btn-set-radius-]').removeClass("btn-flat-pressed");
+		$(this).addClass("btn-flat-pressed");
 		window.widget_radius = "10px"
 		document.documentElement.style.setProperty('--theme-br', "10px");
 	});
 	$(document).on( "click", "#btn-set-radius-15", function(e) {
-		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
-		$(this).addClass("btn-neumorphic-pressed");
+		$('[id^=btn-set-radius-]').removeClass("btn-flat-pressed");
+		$(this).addClass("btn-flat-pressed");
 		window.widget_radius = "15px"
 		document.documentElement.style.setProperty('--theme-br', "15px");
 	});
 	$(document).on( "click", "#btn-set-radius-22", function(e) {
-		$('[id^=btn-set-radius-]').removeClass("btn-neumorphic-pressed");
-		$(this).addClass("btn-neumorphic-pressed");
+		$('[id^=btn-set-radius-]').removeClass("btn-flat-pressed");
+		$(this).addClass("btn-flat-pressed");
 		window.widget_radius = "22px"
 		document.documentElement.style.setProperty('--theme-br', "22px");
 	});
@@ -465,17 +466,17 @@
 	function restore_radius() {
 		var restoreRadius = (localStorage.getItem('saveRadius'));
 		if(restoreRadius === '2px') {
-				$("#btn-set-radius-2").addClass("btn-neumorphic-pressed");
+				$("#btn-set-radius-2").addClass("btn-flat-pressed");
 		} else if(restoreRadius === '5px') {
-			$("#btn-set-radius-5").addClass("btn-neumorphic-pressed");
+			$("#btn-set-radius-5").addClass("btn-flat-pressed");
 		} else if(restoreRadius === '10px') {
-			$("#btn-set-radius-10").addClass("btn-neumorphic-pressed");
+			$("#btn-set-radius-10").addClass("btn-flat-pressed");
 		} else if(restoreRadius === '15px') {
-			$("#btn-set-radius-15").addClass("btn-neumorphic-pressed");
+			$("#btn-set-radius-15").addClass("btn-flat-pressed");
 		} else if(restoreRadius === '22px') {
-			$("#btn-set-radius-22").addClass("btn-neumorphic-pressed");
+			$("#btn-set-radius-22").addClass("btn-flat-pressed");
 		} else {
-			$("#btn-set-radius-22").addClass("btn-neumorphic-pressed");
+			$("#btn-set-radius-22").addClass("btn-flat-pressed");
 		}
 		document.documentElement.style.setProperty('--theme-br', restoreRadius);
 		window.widget_radius = restoreRadius
@@ -488,13 +489,13 @@
 		var restoreBackground = (localStorage.getItem('saveBackground'));
 		if("savePhotoBackground" in localStorage){  			
 			var restorePhotoBackground = (localStorage.getItem('savePhotoBackground'));
-			$('body').css("background", "url("+restorePhotoBackground+") top center no-repeat");
-			$('body').css("background-size", "cover");
+			$('.background-style').css("background", "url("+restorePhotoBackground+") top center no-repeat");
+			$('.background-style').css("background-size", "cover");
 			lightenDarkenOnLoad("#1c1c1c");
 			window.photoBackground = restorePhotoBackground
 			window.isPhotoBackground = true
 		} else {
-			$('body').css("background", restoreBackground);
+			$('.background-style').css("background", restoreBackground);
 			if (restoreBackground === null) {
 				var restoreBackground = "#21242c"
 			}
@@ -645,3 +646,23 @@
             
         }
     });
+
+
+
+	// Background blur
+    $(document).on('input', '#background-blur-slider', function() {
+		var slider = this
+		var output = document.getElementById("background-blur-value");		
+		output.innerHTML = slider.value+"px";
+		$('.background-style').css({'-webkit-filter':'blur('+slider.value+'px)'});
+		window.backgroundBlur = slider.value
+	});
+
+
+
+    // Restore background blur
+	function restore_background_blur() {
+		var restoreBackgroundBlur = (localStorage.getItem('saveBackgroundBlur'));
+		document.getElementById("background-blur-value").innerHTML = restoreBackgroundBlur+"px";
+		$('.background-style').css({'-webkit-filter':'blur('+restoreBackgroundBlur+'px)'});
+	};
