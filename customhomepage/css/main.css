@@ -266,7 +266,7 @@ textarea::placeholder {
     outline: none;
     border: none;
 }
-.btn-add-new-widget, .btn-background-dialogue, .btn-default-layout, .btn-export-save, .btn-import-save, .btn-edit-save  {
+.btn-add-new-widget, .btn-background-dialogue, .btn-default-layout, .btn-export-save, .btn-import-save, .btn-edit-save {
     width: 50px;
     font-size: 20px;
     letter-spacing: 0;
@@ -390,6 +390,43 @@ textarea::placeholder {
     width: 320px;
     height: auto;
     padding-top: 50px;
+}
+
+/* Change Widget Colour */
+.widget-colour-dialogue {
+    top: calc(50% - 200px);
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    padding-top: 50px;
+    color: #fff;
+}
+.widget-colour-dialogue-buttons-container {
+    
+}
+.widget-colour-opacity-slider-container {
+    margin-top: 10px;
+    width: 300px;
+    position: absolute;
+    margin-left: -12px;
+}
+#widget-colour-opacity {
+    width: 250px;
+}
+.btn-colour-bg {
+    height: 30px;
+    width: 300px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    border-radius: var(--theme-br);
+    background: var(--theme-grey);
+    border: none;
+}
+.btn-colour-bg:hover {
+    background: var(--theme-grey2);
+    cursor: pointer;
 }
 
 /* Import/Export Save Dialogue */
@@ -533,24 +570,27 @@ button.accordion.active:after {
     width: 76px;
     height: 50px;
 }
-.background-blur-text, .background-blur-input, .background-blur-value {
+.background-blur-text, .background-blur-input, .background-blur-value, .widget-colour-opacity-text, .widget-colour-opacity-input, .widget-colour-opacity-value {
     display: inline-block;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.background-blur-text, .background-blur-value {
+.background-blur-text, .background-blur-value, .widget-colour-opacity-text, .widget-colour-opacity-value {
     top: 15px;
     float: left;
     margin-left: 12px;
     color: #fff;
 }
-.background-blur-input {
+.background-blur-input, .widget-colour-opacity-input {
     top: 20px;
     float: left;
     margin-left: 10px;
     width: 120px;
+}
+.widget-colour-opacity-input {
+    width: 155px;
 }
 .colour-input {
     width: 220px;
@@ -617,33 +657,9 @@ button.accordion.active:after {
     background: conic-gradient(red, yellow, lime, aqua, blue, fuchsia, red);
     z-index: 100;
 }
-.btn-colour-picker .colour-picker {
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    top: 0;
-    right: 105%; 
-    position: absolute;
-    z-index: 150;
-}
-.btn-colour-picker .colour-picker::after {
-  content: "";
-  position: absolute;
-  top: 10%;
-  left: 100%;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent black;
-  z-index: 150;
-}
-.colour-picker {
-    visibility: hidden;
-}
-.btn-colour-picker:hover .colour-picker {
+.btn-colour-picker:hover {
   visibility: visible;
+  cursor: pointer;
 }
 .widget-colour {
     width: 100%;
@@ -655,7 +671,7 @@ button.accordion.active:after {
 .btn-colour-white2, .btn-colour-yellow, .btn-colour-purple, .btn-colour-teal, .btn-colour-green2,
 .btn-colour-orange, .btn-colour-pink, .btn-colour-green3, .btn-colour-purple2, .btn-colour-white,
 .btn-colour-grey, .btn-colour-grey2, .btn-colour-grey3, .btn-colour-cyan, .btn-colour-grey4,
-.btn-colour-purple3, .btn-colour-bg {
+.btn-colour-purple3{
     width: 25px;
     height: 25px;
     border-radius: 100%;
@@ -666,7 +682,7 @@ button.accordion.active:after {
 .btn-colour-teal:hover, .btn-colour-green2:hover, .btn-colour-orange:hover, .btn-colour-pink:hover,
 .btn-colour-green3:hover, .btn-colour-purple2:hover, .btn-colour-white:hover, .btn-colour-grey:hover,
 .btn-colour-grey2:hover, .btn-colour-grey3:hover, .btn-colour-cyan:hover, .btn-colour-grey4:hover, 
-.btn-colour-purple3:hover, .btn-colour-bg:hover {
+.btn-colour-purple3:hover{
     cursor: pointer;
 }
 .btn-colour-grey, .colour-bg-grey {
@@ -728,13 +744,6 @@ button.accordion.active:after {
 }
 .btn-colour-purple3, .colour-bg-purple3 {
     background: #675278;
-}
-.btn-colour-bg {
-    width: 100px;
-    text-align: center;
-    border-radius: 5px;
-    color: #fff;
-    background: black;
 }
 .gridster .preview-holder {
     border: none !important;
