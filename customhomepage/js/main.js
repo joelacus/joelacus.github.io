@@ -465,7 +465,7 @@
 	function restore_radius() {
 		var restoreRadius = (localStorage.getItem('saveRadius'));
 		if(restoreRadius === '2px') {
-				$("#btn-set-radius-2").addClass("btn-flat-pressed");
+			$("#btn-set-radius-2").addClass("btn-flat-pressed");
 		} else if(restoreRadius === '5px') {
 			$("#btn-set-radius-5").addClass("btn-flat-pressed");
 		} else if(restoreRadius === '10px') {
