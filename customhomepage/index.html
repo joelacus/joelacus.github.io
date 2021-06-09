@@ -10,7 +10,6 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
 	<link href="css/gridster.css" rel="stylesheet" type="text/css" />	
-	<!--<link href="css/context.standalone.css" rel="stylesheet" >-->
 	<link href="css/spectrum.css" rel="stylesheet" >
 
 <!-- = Scripts = -->
@@ -20,8 +19,6 @@
 	<script src="js/html5storage.min.js"></script>
 	<script src="js/colours-main.js"></script>	
 	<script src="js/spectrum.js"></script>
-	<!--<script src="js/initialize.js"></script>
-	<script src="js/context.js"></script>-->
 	<script src="js/main.js"></script>
 	
 <head>
@@ -57,13 +54,7 @@
 			<li data-min-sizex="4" data-min-sizey="1" data-max-sizex="12" data-max-sizey="1" class="gs-w" data-col="9" data-row="4" data-sizex="8" data-sizey="1">
 				<div class="widget-colour" style="background-color: rgb(84, 71, 140);border: solid 1px rgb(84, 71, 140);">
 					<div class="widget-bg-style convex"><header class="hidden"></header>
-						<div class="btn-colour-picker hidden">
-							<div class="colour-picker">
-								<div class="widget-colour-picker insert-colour-buttons">
-									<!-- will insert colour buttons html -->
-								</div>
-							</div>
-						</div>
+						<div class="btn-colour-picker hidden"></div>
 						<button class="remove hidden"></button>
 						<div class="search-bar">
 							<div style="width: 100%;height:100%;"><form onSubmit="return false;"><input class="search-input duckduckgo" type="" name="" placeholder="Search DuckDuckGo"><button class="btn-search-d" type="button"><i class="fas fa-search"></i></button></form></div>
@@ -75,12 +66,7 @@
 				<div class="widget-colour" style="background-color: rgb(249, 65, 68);border: solid 1px rgb(249, 65, 68);">
 					<div class="widget-bg-style convex"><header class="hidden"></header>
 						<div class="btn-colour-picker hidden">
-							<div class="colour-picker">
-								<div class="widget-colour-picker insert-colour-buttons">
-									<!-- will insert colour buttons html -->
-								</div>
-							</div>
-						</div>
+							<div class="btn-colour-picker hidden"></div>
 						<button class="remove hidden"></button>
 						<div class="widget-link">
 							<a href="https://www.youtube.com">Youtube</a>
@@ -92,12 +78,7 @@
 				<div class="widget-colour" style="background-color: rgb(242, 158, 76);border: solid 1px rgb(242, 158, 76);">
 					<div class="widget-bg-style convex"><header class="hidden"></header>
 						<div class="btn-colour-picker hidden">
-							<div class="colour-picker">
-								<div class="widget-colour-picker insert-colour-buttons">
-									<!-- will insert colour buttons html -->
-								</div>
-							</div>
-						</div>
+							<div class="btn-colour-picker hidden"></div>
 						<button class="remove hidden"></button>
 						<div class="widget-link">
 							<a href="https://www.reddit.com">Reddit</a>
@@ -285,6 +266,40 @@
 		<button class="btn-reset-confirm-no btn-flat">No, Go Back</button>
 	</div>
 
+	<div class="dialogue neumorphic widget-colour-dialogue">
+		<button class="btn-dialogue-close btn-widget-colour-dialogue-close"><i class="fas fa-times"></i></button>
+		<span>Preset Colours</span>
+		<div class="widget-colour-dialogue-buttons-container">
+			<button class="btn-colour-grey3"></button>
+			<button class="btn-colour-grey4"></button>
+			<button class="btn-colour-grey2"></button>
+			<button class="btn-colour-grey"></button>
+			<button class="btn-colour-white"></button>
+			<button class="btn-colour-purple2"></button>
+			<button class="btn-colour-purple3"></button>
+			<button class="btn-colour-purple"></button>
+			<button class="btn-colour-blue2"></button>
+			<button class="btn-colour-blue"></button>
+			<button class="btn-colour-teal"></button>
+			<button class="btn-colour-cyan"></button>
+			<button class="btn-colour-green"></button>
+			<button class="btn-colour-green2"></button>
+			<button class="btn-colour-green3"></button>
+			<button class="btn-colour-yellow"></button>
+			<button class="btn-colour-white2"></button>
+			<button class="btn-colour-orange"></button>
+			<button class="btn-colour-pink"></button>
+			<button class="btn-colour-red"></button>
+		</div>
+		<button class="btn-colour-bg" style="margin-top: 10px;">Use Background Colour</button>
+		<div class="widget-colour-opacity-slider-container">
+			<div class="widget-colour-opacity-text"><a>Opacity</a></div>
+			<div class="widget-colour-opacity-input"><input type="range" min="0" max="100" value="100" class="slider" id="widget-colour-opacity-slider"></div>
+			<div class="widget-colour-opacity-value"><span id="widget-colour-opacity-value"></span></div>
+		</div>
+		<br>
+	</div>
+
 
 	<!-- SCRIPTS -->
 
@@ -321,32 +336,6 @@
 		}
 		//document.getElementById( 'openAll' ).addEventListener( 'click', openAll);
 		//document.getElementById( 'closeAll' ).addEventListener( 'click', closeAll);
-	</script>
-
-	<script type="text/javascript">
-		$(document).ready(function addcopy() {
-			$(".insert-colour-buttons").html('<button class="btn-colour-grey3"></button>\
-												<button class="btn-colour-grey4"></button>\
-												<button class="btn-colour-grey2"></button>\
-												<button class="btn-colour-grey"></button>\
-												<button class="btn-colour-white"></button>\
-												<button class="btn-colour-purple2"></button>\
-												<button class="btn-colour-purple3"></button>\
-												<button class="btn-colour-purple"></button>\
-												<button class="btn-colour-blue2"></button>\
-												<button class="btn-colour-blue"></button>\
-												<button class="btn-colour-teal"></button>\
-												<button class="btn-colour-cyan"></button>\
-												<button class="btn-colour-green"></button>\
-												<button class="btn-colour-green2"></button>\
-												<button class="btn-colour-green3"></button>\
-												<button class="btn-colour-yellow"></button>\
-												<button class="btn-colour-white2"></button>\
-												<button class="btn-colour-orange"></button>\
-												<button class="btn-colour-pink"></button>\
-												<button class="btn-colour-red"></button>\
-												<button class="btn-colour-bg">Background</button>');
-	     });														
 	</script>
 
 	<script type="text/javascript">
@@ -587,31 +576,6 @@
 		<div class="widget-bg-style '
 		var widget_basics_2 = '"><header class="hidden centre"></header>\
 								<div class="btn-colour-picker visible">\
-									<div class="colour-picker">\
-										<div class="widget-colour-picker">\
-											<button class="btn-colour-grey3"></button>\
-											<button class="btn-colour-grey4"></button>\
-											<button class="btn-colour-grey2"></button>\
-											<button class="btn-colour-grey"></button>\
-											<button class="btn-colour-white"></button>\
-											<button class="btn-colour-purple2"></button>\
-											<button class="btn-colour-purple3"></button>\
-											<button class="btn-colour-purple"></button>\
-											<button class="btn-colour-blue2"></button>\
-											<button class="btn-colour-blue"></button>\
-											<button class="btn-colour-teal"></button>\
-											<button class="btn-colour-cyan"></button>\
-											<button class="btn-colour-green"></button>\
-											<button class="btn-colour-green2"></button>\
-											<button class="btn-colour-green3"></button>\
-											<button class="btn-colour-yellow"></button>\
-											<button class="btn-colour-white2"></button>\
-											<button class="btn-colour-orange"></button>\
-											<button class="btn-colour-pink"></button>\
-											<button class="btn-colour-red"></button>\
-											<button class="btn-colour-bg">Background</button>\
-										</div>\
-									</div>\
 								</div><button class="remove visible"></button><div class="visible"><span class="gs-resize-handle gs-resize-handle-both" style="display:block;"></i></span></div>'
 		
 		// Add new bookmark widget
@@ -806,19 +770,6 @@
 			$(".search-input").focus();
 		});
 	</script>
-
-	<!--<script type="text/javascript">
-		// Right Click Menu
-  		context.attach('#right-click-menu', right_click_menu);
-		$(document).mouseup(function(e){
-		    var container = $("#dropdown-rightClickMenu");
-		    if (!container.is(e.target) && container.has(e.target).length === 0) {
-		    	if ($("#dropdown-rightClickMenu").is(":visible")){		    		
-		    		$("#dropdown-rightClickMenu").css("display", "none");
-		    	}
-		    }
-		});
-	</script>-->
 
 	<script type="text/javascript">
 		// Colour Palette
